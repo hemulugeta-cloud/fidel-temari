@@ -30,7 +30,7 @@ footer{text-align:center;padding:25px;color:#666}
 </head>
 <body>
 <header><h1>ፊደል ተማሪ</h1><p>Fidel Temari • Learn Amharic through games, words & Christian learning</p></header>
-<button class="menuToggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu / ምናሌ</button>
+<button class="menuToggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu</button>
 <nav id="mainNav">
 <button class="active" onclick="show('home',this)">🏠 Home</button>
 <button onclick="show('alphabet',this)">ፊደል & Numbers</button>
@@ -215,8 +215,8 @@ if(spiritual&&prayers){spiritual.id='spiritual';const intro=spiritual.querySelec
 
 // Compact mobile navigation.
 const menu=document.getElementById('menuToggle'),nav=document.getElementById('mainNav');
-menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'✕ Close / ዝጋ':'☰ Menu / ምናሌ'});
-nav.addEventListener('click',e=>{if(e.target.closest('button')&&innerWidth<=700){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰ Menu / ምናሌ'}});
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'✕ Close':'☰ Menu'});
+nav.addEventListener('click',e=>{if(e.target.closest('button')&&innerWidth<=700){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰ Menu'}});
 
 const missingBank=[];
 families.forEach((family,fi)=>family.forEach((answer,pos)=>missingBank.push({id:`f${fi}-${pos}`,family,answer,pos})));missingBank.length=60;
