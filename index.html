@@ -21,23 +21,26 @@ main{max-width:1050px;margin:22px auto;padding:0 15px}.screen{display:none}.scre
 .verse{font-size:25px;line-height:1.7;text-align:center}.muted{color:#667}
 .ethiopian-card{border-top:8px solid #078930;border-bottom:8px solid #da121a}.puzzle-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:18px 0}.puzzle-row .tile{cursor:grab}.puzzle-row .tile.selected{background:#078930;color:#fff}.answerBox{min-height:70px;padding:12px;border:2px dashed #da121a;border-radius:12px}.calendarGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px}.calendarItem{padding:15px;border-left:7px solid #078930;background:#fff9d9;border-radius:10px;font-size:21px}.calendarItem:nth-child(3n+2){border-color:#f0c400}.calendarItem:nth-child(3n){border-color:#da121a}.prayer{font-size:20px;line-height:2;white-space:pre-line;background:#fffdf3;border-left:6px solid #078930;padding:18px;border-radius:10px}.prayer.amharic{border-color:#da121a}.prayer.english{border-color:#f0c400;background:#fffef7}.prayer-tabs{display:flex;gap:8px;margin:10px 0}.prayer-title{color:#078930}.flagline{height:7px;background:linear-gradient(90deg,#078930 0 33%,#fcd116 33% 66%,#da121a 66%)}
 .level-picker{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:15px 0}.level-picker button{border:2px solid #078930}.level-picker button.level-active{background:#078930;color:#fff}.level-note{display:block;font-size:15px;font-weight:normal;margin-top:6px}.churchGrid{grid-template-columns:repeat(auto-fit,minmax(175px,1fr))}.churchGrid .fidel{font-size:23px;padding:14px 8px}.clue{font-size:19px;color:#667;margin:10px}.hidden{display:none!important}
+.menuToggle{display:none;width:calc(100% - 24px);margin:8px 12px;background:#078930;color:#fff;font-size:18px}.session-controls{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin:14px 0;padding:12px;background:#fff9d9;border-radius:12px}.session-controls select{font-size:16px;padding:10px;border:2px solid #078930;border-radius:10px;background:white}.progressBar{height:12px;background:#e7e7e7;border-radius:8px;overflow:hidden;margin:12px 0}.progressFill{height:100%;background:linear-gradient(90deg,#078930,#f0c400,#da121a);width:0;transition:width .25s}.gameStatus{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;font-size:17px;font-weight:bold}.resultCard{padding:20px;border:3px solid #078930;border-radius:14px;background:#fffdf3}.compactGrid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}.reference-title{grid-column:1/-1;color:#078930;margin:12px 0 2px}.choice-btn:disabled,.tile.disabled{opacity:.65;cursor:not-allowed}.question small{display:block;font-size:17px;color:#667;margin-top:8px;letter-spacing:0}
+.difficulty-banner{display:inline-block;margin:12px auto 4px;padding:8px 16px;border-radius:999px;color:#fff;font-weight:bold}.difficulty-1{background:#078930}.difficulty-2{background:#d09c00}.difficulty-3{background:#b4141a}.difficulty-help{max-width:700px;margin:5px auto 15px;color:#52606d}.partial-pattern{font-size:38px;letter-spacing:7px;margin:16px 0}.challenge-warning{font-weight:bold;color:#9b151b}
+@media(max-width:700px){header{padding:14px 10px}header h1{font-size:25px}.menuToggle{display:block;position:sticky;top:0;z-index:5}nav{display:none;position:sticky;top:51px;max-height:58vh;overflow:auto;padding:8px;align-items:stretch}nav.open{display:grid;grid-template-columns:1fr 1fr}nav button{padding:10px 6px;font-size:14px}.card{padding:15px;border-radius:13px}.question{font-size:27px;margin:16px 0}.word{font-size:30px;letter-spacing:3px}.tile{padding:10px 13px;margin:3px;font-size:24px}.choices{grid-template-columns:1fr}.choices button{font-size:19px;padding:13px}.grid,.churchGrid,.calendarGrid{grid-template-columns:1fr 1fr}.fidel{font-size:23px;padding:12px 4px}.prayer{font-size:18px;line-height:1.75;padding:14px}.level-picker{display:grid;grid-template-columns:1fr 1fr}.level-picker button:last-child:nth-child(odd){grid-column:1/-1}.hero .big{font-size:48px}main{margin-top:10px;padding:0 9px}}
+@media(max-width:390px){nav.open{grid-template-columns:1fr}.grid,.churchGrid,.calendarGrid{grid-template-columns:1fr}.session-controls{align-items:stretch}.session-controls>*{width:100%}}
 footer{text-align:center;padding:25px;color:#666}
 </style>
 </head>
 <body>
 <header><h1>ፊደል ተማሪ</h1><p>Fidel Temari • Learn Amharic through games, words & Christian learning</p></header>
-<nav>
+<button class="menuToggle" id="menuToggle" aria-expanded="false" aria-controls="mainNav">☰ Menu / ምናሌ</button>
+<nav id="mainNav">
 <button class="active" onclick="show('home',this)">🏠 Home</button>
-<button onclick="show('alphabet',this)">ፊደል Alphabet</button>
+<button onclick="show('alphabet',this)">ፊደል & Numbers</button>
 <button onclick="show('missing',this)">🔤 Missing Letter</button>
 <button onclick="show('word',this)">🧩 Complete Word</button>
 <button onclick="show('choice',this)">✅ Multiple Choice</button>
 <button onclick="show('scrabble',this)">🔠 Word Builder</button>
 <button onclick="show('puzzles',this)">🧠 Alphabet Puzzles</button>
-<button onclick="show('church',this)">✝️ Church</button>
-<button onclick="show('prayers',this)">🙏 Spiritual Prayers</button>
-<button onclick="show('numbers',this)">🔢 Numbers</button>
 <button onclick="show('calendar',this)">📅 Calendar</button>
+<button onclick="show('spiritual',this)">🙏 Spiritual Prayers & Words</button>
 </nav>
 <main>
 <section id="home" class="screen activeScreen">
@@ -98,7 +101,7 @@ footer{text-align:center;padding:25px;color:#666}
 
 <section id="numbers" class="screen"><div class="card"><h2>🔢 Ethiopian Numbers</h2><div id="numbersGrid" class="grid"></div></div></section>
 </main>
-<footer><div class="flagline"></div><br>ፊደል ተማሪ • Church Learning Edition • Version 2</footer>
+<footer><div class="flagline"></div><br>ፊደል ተማሪ • Responsive Learning Edition • Version 3</footer>
 
 <script>
 const families=[
@@ -112,7 +115,8 @@ const families=[
 ["ጨ","ጩ","ጪ","ጫ","ጬ","ጭ","ጮ"],["ጰ","ጱ","ጲ","ጳ","ጴ","ጵ","ጶ"],["ጸ","ጹ","ጺ","ጻ","ጼ","ጽ","ጾ"],["ፀ","ፁ","ፂ","ፃ","ፄ","ፅ","ፆ"],
 ["ፈ","ፉ","ፊ","ፋ","ፌ","ፍ","ፎ"],["ፐ","ፑ","ፒ","ፓ","ፔ","ፕ","ፖ"]];
 const words=[
-{w:"ቤት",e:"House"},{w:"ልጅ",e:"Child"},{w:"እናት",e:"Mother"},{w:"አባት",e:"Father"},{w:"መጽሐፍ",e:"Book"},{w:"ውሃ",e:"Water"},{w:"ፍቅር",e:"Love"},{w:"ሰላም",e:"Peace"},{w:"ደስታ",e:"Joy"},{w:"ጸሎት",e:"Prayer"},{w:"እምነት",e:"Faith"},{w:"በረከት",e:"Blessing"},{w:"መስቀል",e:"Cross"},{w:"እሑድ",e:"Sunday"},{w:"ቤተክርስቲያን",e:"Church"},{w:"መልአክ",e:"Angel"},{w:"ቅዱስ",e:"Holy"},{w:"ወንጌል",e:"Gospel"},{w:"ምሕረት",e:"Mercy"},{w:"ትንሣኤ",e:"Resurrection"},{w:"ጥምቀት",e:"Baptism"},{w:"ቁርባን",e:"Holy Communion"},{w:"ካህን",e:"Priest"},{w:"ዲያቆን",e:"Deacon"},{w:"መቅደስ",e:"Sanctuary"},{w:"ስግደት",e:"Prostration"},{w:"ምስጋና",e:"Praise"},{w:"ይቅርታ",e:"Forgiveness"},{w:"ትሕትና",e:"Humility"},{w:"ትዕግሥት",e:"Patience"}];
+{w:"ቤት",e:"House"},{w:"ልጅ",e:"Child"},{w:"እናት",e:"Mother"},{w:"አባት",e:"Father"},{w:"መጽሐፍ",e:"Book"},{w:"ውሃ",e:"Water"},{w:"ፍቅር",e:"Love"},{w:"ሰላም",e:"Peace"},{w:"ደስታ",e:"Joy"},{w:"ጸሎት",e:"Prayer"},{w:"እምነት",e:"Faith"},{w:"በረከት",e:"Blessing"},{w:"መስቀል",e:"Cross"},{w:"እሑድ",e:"Sunday"},{w:"ቤተክርስቲያን",e:"Church"},{w:"መልአክ",e:"Angel"},{w:"ቅዱስ",e:"Holy"},{w:"ወንጌል",e:"Gospel"},{w:"ምሕረት",e:"Mercy"},{w:"ትንሣኤ",e:"Resurrection"},{w:"ጥምቀት",e:"Baptism"},{w:"ቁርባን",e:"Holy Communion"},{w:"ካህን",e:"Priest"},{w:"ዲያቆን",e:"Deacon"},{w:"መቅደስ",e:"Sanctuary"},{w:"ስግደት",e:"Prostration"},{w:"ምስጋና",e:"Praise"},{w:"ይቅርታ",e:"Forgiveness"},{w:"ትሕትና",e:"Humility"},{w:"ትዕግሥት",e:"Patience"},
+{w:"ሰማይ",e:"Heaven"},{w:"ምድር",e:"Earth"},{w:"ፀሐይ",e:"Sun"},{w:"ጨረቃ",e:"Moon"},{w:"ኮከብ",e:"Star"},{w:"ብርሃን",e:"Light"},{w:"እንጀራ",e:"Bread"},{w:"ምግብ",e:"Food"},{w:"ትምህርት",e:"Education"},{w:"ትምህርትቤት",e:"School"},{w:"መምህር",e:"Teacher"},{w:"ተማሪ",e:"Student"},{w:"ቤተሰብ",e:"Family"},{w:"ወንድም",e:"Brother"},{w:"እኅት",e:"Sister"},{w:"ጓደኛ",e:"Friend"},{w:"ጤና",e:"Health"},{w:"ጥበብ",e:"Wisdom"},{w:"እውነት",e:"Truth"},{w:"ፍትሕ",e:"Justice"},{w:"ነፍስ",e:"Soul"},{w:"ሕይወት",e:"Life"},{w:"ትእዛዝ",e:"Commandment"},{w:"መንግሥት",e:"Kingdom"},{w:"ክብር",e:"Glory"},{w:"ኃይል",e:"Power"},{w:"ደወል",e:"Bell"},{w:"ጧፍ",e:"Candle"},{w:"ዕጣን",e:"Incense"},{w:"መድኃኒት",e:"Salvation"}];
 const church=[
 ["እግዚአብሔር","God"],["አብ","The Father"],["ወልድ","The Son"],["መንፈስ ቅዱስ","Holy Spirit"],["ሥላሴ","Holy Trinity"],["ኢየሱስ ክርስቶስ","Jesus Christ"],["እመቤታችን","Our Lady"],["ቅድስት ድንግል ማርያም","Saint Virgin Mary"],["ተዋሕዶ","Tewahedo / United Nature"],["ቤተ ክርስቲያን","Church"],["መቅደስ","Sanctuary"],["ታቦት","Tabot"],["መስቀል","Cross"],["መጽሐፍ ቅዱስ","Holy Bible"],["ወንጌል","Gospel"],["መዝሙር","Psalm / Hymn"],["ቅዳሴ","Divine Liturgy"],["ጸሎት","Prayer"],["ስግደት","Prostration"],["ጾም","Fasting"],["ጥምቀት","Baptism"],["ቁርባን","Holy Communion"],["ንስሐ","Repentance"],["ካህን","Priest"],["ዲያቆን","Deacon"],["ጳጳስ","Bishop"],["መልአክ","Angel"],["ቅዱስ","Saint / Holy"],["ሰማዕት","Martyr"],["በዓል","Feast"],["ትንሣኤ","Resurrection"],["ልደት","Nativity"],["ጥምቀተ ክርስቶስ","Epiphany / Timket"],["እምነት","Faith"],["ተስፋ","Hope"],["ፍቅር","Love"],["ምሕረት","Mercy"],["በረከት","Blessing"],["ሰላም!","Peace! / Hello!"],["እንደምን አደሩ?","Good morning"],["እንደምን ዋሉ?","Good afternoon"],["እንደምን አመሹ?","Good evening"],["ደኅና እደሩ!","Good night"],["እንኳን ደኅና መጡ!","Welcome!"],["እግዚአብሔር ይመስገን!","Thanks be to God!"],["እግዚአብሔር ይባርክዎ!","May God bless you!"],["መልካም እሑድ!","Happy Sunday!"],["በሰላም ይግቡ!","Enter in peace!"],["በሰላም ይዋሉ!","Have a peaceful day!"],["በሰላም ይመለሱ!","Return in peace!"],["አሜን","Amen"],["ይቅርታ","Forgiveness / Sorry"],["እባክዎ","Please"],["አመሰግናለሁ","Thank you"]];
 const nums=[["1","፩"],["2","፪"],["3","፫"],["4","፬"],["5","፭"],["6","፮"],["7","፯"],["8","፰"],["9","፱"],["10","፲"],["20","፳"],["30","፴"],["40","፵"],["50","፶"],["60","፷"],["70","፸"],["80","፹"],["90","፺"],["100","፻"]];
@@ -194,6 +198,78 @@ function renderGroup(){let target=baseGroups[groupIndex];document.getElementById
 function chooseGroup(x){groupBuilt.push(x);let target=baseGroups[groupIndex];document.getElementById('groupAnswer').textContent=groupBuilt.join(' ');document.getElementById('groupPuzzle').innerHTML=shuffle(target.filter(y=>!groupBuilt.includes(y))).map(y=>`<span class="tile" onclick="chooseGroup('${y}')">${y}</span>`).join('');if(groupBuilt.length===target.length){if(groupBuilt.join('')===target.join('')){groupScore++;document.getElementById('groupScore').textContent=groupScore;document.getElementById('groupFeedback').textContent='✓ Correct group order!';}else document.getElementById('groupFeedback').textContent='✗ Try this group again.';}}
 function resetGroupPuzzle(){groupBuilt=[];renderGroup();}
 render();newMissing();newWord();newChoice();newScrabble();newRowPuzzle();renderGroup();
+</script>
+<script>
+/* Version 3 responsive, non-repeating challenge engine */
+(function(){
+const qShuffle=a=>{let b=[...a];for(let i=b.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b};
+const allFidel=families.flat();
+const ethiopicNumber=n=>{if(n===100)return '፻';const ones=['','፩','፪','፫','፬','፭','፮','፯','፰','፱'],tens=['','፲','፳','፴','፵','፶','፷','፸','፹','፺'];return tens[Math.floor(n/10)]+ones[n%10]};
+
+// Consolidate reference and spiritual sections while preserving all prayer text.
+const alphabetCard=document.querySelector('#alphabet .card');
+const numberSection=document.getElementById('numbers');
+if(alphabetCard&&numberSection){const h=document.createElement('h2');h.className='reference-title';h.textContent='🔢 Ethiopian Numbers / የኢትዮጵያ ቁጥሮች';alphabetCard.append(h,document.getElementById('numbersGrid'));numberSection.remove();}
+const spiritual=document.getElementById('church'),prayers=document.getElementById('prayers');
+if(spiritual&&prayers){spiritual.id='spiritual';const intro=spiritual.querySelector('h2');if(intro)intro.textContent='🙏 መንፈሳዊ ጸሎቶችና ቃላት — Spiritual Prayers & Words';[...prayers.children].forEach(x=>spiritual.appendChild(x));prayers.remove();}
+
+// Compact mobile navigation.
+const menu=document.getElementById('menuToggle'),nav=document.getElementById('mainNav');
+menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'✕ Close / ዝጋ':'☰ Menu / ምናሌ'});
+nav.addEventListener('click',e=>{if(e.target.closest('button')&&innerWidth<=700){nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰ Menu / ምናሌ'}});
+
+const missingBank=[];
+families.forEach((family,fi)=>family.forEach((answer,pos)=>missingBank.push({id:`f${fi}-${pos}`,family,answer,pos})));missingBank.length=60;
+const alphabetPuzzleBank=families.map((sequence,i)=>({id:`alphabet-${i}`,label:`Fidel family ${i+1} — put all seven letters in order`,sequence:[...sequence]}));
+for(let group=0;group<25;group++){let start=group*4+1;alphabetPuzzleBank.push({id:`numbers-${group+1}`,label:`Numbers ${start}–${start+3} — put them in order`,sequence:[0,1,2,3].map(x=>ethiopicNumber(start+x))});}
+alphabetPuzzleBank.push({id:'number-tens',label:'Tens 10–100 — put them in order',sequence:[10,20,30,40,50,60,70,80,90,100].map(ethiopicNumber)});
+
+const gameState={};
+const sessionControl=type=>`<div class="session-controls"><label>Questions: <select id="${type}Count" onchange="startChallenge('${type}')"><option>15</option><option>30</option><option>45</option><option selected>60</option></select></label>${type==='word'||type==='choice'?`<label>Difficulty: <select id="${type}Level" onchange="startChallenge('${type}')"><option value="1">Level 1 — Beginner</option><option value="2">Level 2 — Intermediate</option><option value="3">Level 3 — Advanced</option></select></label>`:''}<button onclick="startChallenge('${type}')">Restart Challenge</button></div><div class="gameStatus"><span>Question: <b id="${type}Progress">0/0</b></span><span>Score: <b id="${type}Score">0</b></span><span>Best: <b id="${type}Best">${localStorage.getItem('fidel-best-'+type)||0}</b></span></div><div class="progressBar"><div id="${type}Bar" class="progressFill"></div></div><div id="${type}Stage"><p class="muted">Choose a question count and difficulty.</p></div>`;
+
+document.getElementById('missing').innerHTML=`<div class="card game"><h2>🔤 Missing Letter Challenge</h2><p>Complete a Fidel family. Every question in a session is unique.</p>${sessionControl('missing')}</div>`;
+document.getElementById('word').innerHTML=`<div class="card game"><h2>🧩 Complete the Word</h2><p>Level 1 removes one letter, Level 2 removes two or more, and Level 3 asks you to rebuild the whole word.</p>${sessionControl('word')}</div>`;
+document.getElementById('choice').innerHTML=`<div class="card game"><h2>✅ Multiple Choice Challenge</h2><p>Questions become less direct as the level increases.</p>${sessionControl('choice')}</div>`;
+document.getElementById('scrabble').innerHTML=`<div class="card game"><h2>🔠 English-to-Amharic Word Builder</h2><p>Read the English clue and build the Amharic answer. Three extra letters do not belong in the word.</p>${sessionControl('builder')}</div>`;
+document.getElementById('puzzles').innerHTML=`<div class="card game ethiopian-card"><h2>🧠 Complete Alphabet & Number Puzzle</h2><p>The 60 unique puzzles cover all 34 Fidel families and Ethiopian numbers from 1 through 100.</p>${sessionControl('puzzle')}</div>`;
+
+function makeChoices(answer,pool,count=4){const result=new Set([answer]);for(const x of qShuffle(pool)){if(x!==answer)result.add(x);if(result.size===count)break}return qShuffle([...result]);}
+function begin(type,bank){const size=Number(document.getElementById(type+'Count').value),level=document.getElementById(type+'Level');gameState[type]={deck:qShuffle(bank).slice(0,size),index:0,score:0,level:level?Number(level.value):1,answered:false,built:[],usedTiles:new Set()};renderCurrent(type);}
+window.startChallenge=function(type){if(type==='missing')begin(type,missingBank);else if(type==='word'||type==='choice'||type==='builder')begin(type,words);else begin(type,alphabetPuzzleBank)};
+function updateStatus(type){const s=gameState[type],total=s.deck.length;document.getElementById(type+'Progress').textContent=`${Math.min(s.index+1,total)}/${total}`;document.getElementById(type+'Score').textContent=s.score;document.getElementById(type+'Bar').style.width=`${(s.index/total)*100}%`;}
+function next(type){const s=gameState[type];s.index++;s.answered=false;s.built=[];s.usedTiles=new Set();if(s.index>=s.deck.length)return finish(type);renderCurrent(type);}
+window.nextChallenge=next;
+function finish(type){const s=gameState[type],total=s.deck.length,best=Math.max(Number(localStorage.getItem('fidel-best-'+type)||0),s.score);localStorage.setItem('fidel-best-'+type,best);document.getElementById(type+'Best').textContent=best;document.getElementById(type+'Progress').textContent=`${total}/${total}`;document.getElementById(type+'Bar').style.width='100%';document.getElementById(type+'Stage').innerHTML=`<div class="resultCard"><h3>Challenge Complete! / ፈተናው ተጠናቋል!</h3><p class="question">${s.score} / ${total}</p><p>${s.score===total?'Excellent—perfect score!':s.score>=total*.8?'Great work!':'Keep practicing—you are learning!'}</p><button onclick="startChallenge('${type}')">Try Another Session</button></div>`;}
+function feedback(type,correct,message){const s=gameState[type];if(s.answered)return;s.answered=true;if(correct)s.score++;document.getElementById(type+'Score').textContent=s.score;document.getElementById(type+'Feedback').textContent=correct?'✓ ትክክል! Correct!':'✗ '+(message||'Try again next time.');document.querySelectorAll(`#${type}Stage button.choice-btn`).forEach(b=>b.disabled=true);document.getElementById(type+'Next').classList.remove('hidden');}
+window.answerSessionChoice=function(type,encoded,button){const s=gameState[type],answer=decodeURIComponent(encoded);feedback(type,button.textContent===answer,`Correct answer: ${answer}`)};
+function choiceMarkup(type,opts,answer){return `<div class="choices">${opts.map(x=>`<button class="choice-btn" onclick="answerSessionChoice('${type}','${encodeURIComponent(answer)}',this)">${x}</button>`).join('')}</div><div id="${type}Feedback" class="feedback"></div><button id="${type}Next" class="hidden" onclick="nextChallenge('${type}')">Next Question ▶</button>`;}
+function renderCurrent(type){updateStatus(type);const s=gameState[type],item=s.deck[s.index],stage=document.getElementById(type+'Stage');
+if(type==='missing'){const q=item.family.map((x,i)=>i===item.pos?'＿':x).join(' '),opts=makeChoices(item.answer,item.family);stage.innerHTML=`<div class="question">${q}<small>Choose the missing Fidel.</small></div>${choiceMarkup(type,opts,item.answer)}`;}
+else if(type==='word')renderCompleteWord(stage,s,item);
+else if(type==='choice')renderMultipleChoice(stage,s,item);
+else if(type==='builder')renderBuilder(stage,s,item,'builder');
+else renderPuzzle(stage,s,item);}
+
+function levelIntro(level,descriptions){return `<div class="difficulty-banner difficulty-${level}">Level ${level} — ${level===1?'Beginner':level===2?'Intermediate':'Advanced'}</div><div class="difficulty-help">${descriptions[level]}</div>`}
+function renderCompleteWord(stage,s,item){const letters=[...item.w],intro=levelIntro(s.level,{1:'One letter is missing. Use the complete word pattern and choose from only three letters.',2:'Several letters are missing. Select the missing letters one at a time, in the correct order; two extra letters are included.',3:'The Amharic word is completely hidden. Build it from the English meaning while avoiding five extra letters.'});
+if(s.level===3){renderBuilder(stage,s,item,'word',5,intro);return}
+if(s.level===1){const pos=Math.floor(Math.random()*letters.length),answer=letters[pos],q=letters.map((x,i)=>i===pos?'＿':x).join(' '),opts=makeChoices(answer,allFidel,3);stage.innerHTML=`${intro}<div class="clue">English meaning: <b>${item.e}</b></div><div class="question">${q}</div>${choiceMarkup('word',opts,answer)}`;return}
+const missingCount=Math.min(letters.length,Math.max(2,Math.ceil(letters.length/2))),positions=qShuffle(letters.map((_,i)=>i)).slice(0,missingCount).sort((a,b)=>a-b),answer=positions.map(i=>letters[i]).join(''),pattern=letters.map((x,i)=>positions.includes(i)?'＿':x).join(' ');renderPartialWord(stage,s,item,pattern,answer,intro);}
+function renderPartialWord(stage,s,item,pattern,answer,intro){const tiles=qShuffle([...answer,...distractorsFor(item.w,2)]).map((char,i)=>({char,id:i}));s.tiles=tiles;s.built=[];s.usedTiles=new Set();stage.innerHTML=`${intro}<div class="clue">English meaning: <b>${item.e}</b></div><div class="partial-pattern">${pattern}</div><div class="challenge-warning">Select only the missing letters, in their correct order.</div><div id="wordBuilt" class="answerBox word">_</div><div id="wordTiles" class="puzzle-row">${tiles.map(t=>`<button class="tile" data-id="${t.id}" onclick="pickBuilderTile('word',${t.id},'${t.char}')">${t.char}</button>`).join('')}</div><div id="wordFeedback" class="feedback"></div><button onclick="resetBuilder('word')">Start Over</button> <button onclick="checkBuilder('word','${encodeURIComponent(answer)}')">Check Missing Letters</button><button id="wordNext" class="hidden" onclick="nextChallenge('word')">Next Question ▶</button>`;}
+function renderMultipleChoice(stage,s,item){let answer,question,opts,help;if(s.level===1){help=levelIntro(1,{1:'The English meaning and first Amharic letter are provided. Choose from three answers.'});question=`Which Amharic word means “${item.e}”? <small>Hint: it begins with ${[...item.w][0]}</small>`;answer=item.w;opts=makeChoices(answer,words.map(x=>x.w),3);}else if(s.level===2){help=levelIntro(2,{2:'No English clue is shown before the question. Translate the Amharic word and choose from four close possibilities.'});question=`Translate this Amharic word: “${item.w}”`;answer=item.e;opts=makeChoices(answer,words.map(x=>x.e),4);}else{help=levelIntro(3,{3:'Six Amharic–English pairs are shown. Five are deliberately mismatched; find the single correct pair.'});question='Choose the only correctly matched Amharic–English pair.';answer=`${item.w} — ${item.e}`;let wrong=qShuffle(words.filter(x=>x!==item)).slice(0,5).map(x=>{let meanings=words.filter(y=>y.e!==x.e);return `${x.w} — ${qShuffle(meanings)[0].e}`});opts=qShuffle([answer,...wrong]);}stage.innerHTML=`${help}<div class="question">${question}</div>${choiceMarkup('choice',opts,answer)}`;}
+function distractorsFor(word,count=3){const used=new Set([...word]);return qShuffle(allFidel.filter(x=>!used.has(x))).slice(0,count)}
+function renderBuilder(stage,s,item,type,extraCount=3,prefix=''){const target=item.w,tiles=qShuffle([...target,...distractorsFor(target,extraCount)]).map((char,i)=>({char,id:i}));s.tiles=tiles;s.built=[];s.usedTiles=new Set();stage.innerHTML=`${prefix}<div class="question">Build the Amharic word for:<small>${item.e}</small></div><div class="challenge-warning">The word pattern is hidden. ${extraCount} letters do not belong.</div><div id="${type}Built" class="answerBox word">_</div><div id="${type}Tiles" class="puzzle-row">${tiles.map(t=>`<button class="tile" data-id="${t.id}" onclick="pickBuilderTile('${type}',${t.id},'${t.char}')">${t.char}</button>`).join('')}</div><div id="${type}Feedback" class="feedback"></div><button onclick="resetBuilder('${type}')">Start Over</button> <button onclick="checkBuilder('${type}','${encodeURIComponent(target)}')">Check Answer</button><button id="${type}Next" class="hidden" onclick="nextChallenge('${type}')">Next Question ▶</button>`;}
+window.pickBuilderTile=function(type,id,char){const s=gameState[type];if(s.answered||s.usedTiles.has(id))return;s.usedTiles.add(id);s.built.push(char);document.getElementById(type+'Built').textContent=s.built.join(' ');document.querySelector(`#${type}Tiles [data-id="${id}"]`).disabled=true};
+window.resetBuilder=function(type){const s=gameState[type];if(s.answered)return;s.built=[];s.usedTiles.clear();document.getElementById(type+'Built').textContent='_';document.querySelectorAll(`#${type}Tiles button`).forEach(b=>b.disabled=false);document.getElementById(type+'Feedback').textContent=''};
+window.checkBuilder=function(type,encoded){const answer=decodeURIComponent(encoded),s=gameState[type];feedback(type,s.built.join('')===answer,`Correct answer: ${answer}`)};
+function renderPuzzle(stage,s,item){s.built=[];s.usedTiles=new Set();s.tiles=qShuffle(item.sequence.map((char,i)=>({char,id:i})));stage.innerHTML=`<div class="question">${item.label}</div><div id="puzzleBuilt" class="answerBox word">_</div><div id="puzzleTiles" class="puzzle-row">${s.tiles.map(t=>`<button class="tile" data-id="${t.id}" onclick="pickPuzzleTile(${t.id},'${t.char}')">${t.char}</button>`).join('')}</div><div id="puzzleFeedback" class="feedback"></div><button onclick="resetPuzzleSession()">Start Over</button> <button onclick="checkPuzzle('${encodeURIComponent(item.sequence.join(''))}')">Check Answer</button><button id="puzzleNext" class="hidden" onclick="nextChallenge('puzzle')">Next Question ▶</button>`;}
+window.pickPuzzleTile=function(id,char){const s=gameState.puzzle;if(s.answered||s.usedTiles.has(id))return;s.usedTiles.add(id);s.built.push(char);document.getElementById('puzzleBuilt').textContent=s.built.join(' ');document.querySelector(`#puzzleTiles [data-id="${id}"]`).disabled=true};
+window.resetPuzzleSession=function(){const s=gameState.puzzle;if(s.answered)return;s.built=[];s.usedTiles.clear();document.getElementById('puzzleBuilt').textContent='_';document.querySelectorAll('#puzzleTiles button').forEach(b=>b.disabled=false);document.getElementById('puzzleFeedback').textContent=''};
+window.checkPuzzle=function(encoded){const answer=decodeURIComponent(encoded),s=gameState.puzzle;feedback('puzzle',s.built.join('')===answer,`Correct order: ${[...answer].join(' ')}`)};
+
+// Start with short sessions so every game is immediately usable.
+['missing','word','choice','builder','puzzle'].forEach(type=>{document.getElementById(type+'Count').value='15';startChallenge(type)});
+})();
 </script>
 </body>
 </html>
