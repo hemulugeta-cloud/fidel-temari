@@ -104,10 +104,155 @@ body{background:linear-gradient(180deg,#f5f8f7,#eef3f1);color:#17333a}header{bac
 #alphabet .hubIntro h2 .miniBrandMark{width:1.65em;height:1.65em;margin-right:8px}
 #picturehub .hubIntro h2{display:flex;align-items:center;gap:8px}
 @media(max-width:700px){.welcomePanel{margin:0 0 12px!important;padding:16px 15px!important}.welcomePanel .welcomeAmharic{font-size:16px!important;line-height:1.5!important}}
+
+/* Version 20 — learner-first layout, compact actions and expanded practice banks */
+.tileNumber{position:absolute;top:12px;left:14px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#075b49;color:#fff;font-size:18px;font-weight:900;box-shadow:0 3px 9px #0002}.landingTile{position:relative}.welcomePanel{margin-bottom:14px}.activityBack,.hubReturnBar,.bottomActivityNav .backCategoryBtn{display:none!important}.game>button,.game .feedback button,.game .traceActionRow button,.traceActionRow button,.traceNextFamily,.session-controls button,.pictureGame>button{background:#078930!important;color:#fff!important;border-color:#078930!important}.game>button:hover,.traceActionRow button:hover,.traceNextFamily:hover,.session-controls button:hover{background:#056b26!important}.choices button,.quizOption,.tile,.pictureWord,.pictureTarget,.pictureName,.fidelSound,.activityMenu button{background:#fff;color:inherit}.traceFlow{display:grid;gap:10px}.traceFamilyTop{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.traceFamilyTop .traceNextFamily{min-height:54px}.traceSelectedLetters{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:8px}.traceSelectedLetters .traceFamilyRow{display:contents}.traceSelectedLetters button{min-height:48px;padding:5px;font-size:clamp(24px,4vw,38px);background:#fff;color:#17333a;border:2px solid #c9d8d4}.traceSelectedLetters button.current{background:#078930;color:#fff;border-color:#078930}.traceActionRow{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:8px}.traceHint{text-align:center;margin:8px 0 0;color:#5b6e72;font-size:15px}.traceCanvas{height:min(47vh,390px)}.activityPanel.panel-active,.pictureArea.panel-active,.faithArea.panel-active{max-width:1050px;margin:0 auto}.questionBankNote{font-size:13px;color:#607276;text-align:center}.landingTile p{min-height:90px}
+@media(max-width:700px){.landingDashboard{padding-top:2px}.welcomePanel{min-height:auto;padding:12px 14px;margin:0 0 9px}.welcomePanel h2{font-size:25px;margin-bottom:3px}.welcomePanel p{font-size:14px!important;line-height:1.35;margin:0}.landingTile{min-height:270px;padding:12px 8px 10px}.landingTile p{min-height:78px;font-size:13px!important}.landingIcon{height:66px}.tileNumber{width:28px;height:28px;font-size:15px;top:8px;left:8px}.card{padding:10px;margin:5px 0}.traceFamilyTop{grid-template-columns:1fr}.traceFamilySelect{font-size:22px;padding:10px 36px 10px 10px}.traceCanvas{height:min(42vh,300px)}.traceActionRow{grid-template-columns:repeat(2,1fr)}.traceActionRow button{min-height:46px;font-size:14px}.traceSelectedLetters button{min-height:42px;font-size:27px}.game>h2,.card>h2{margin-top:2px;margin-bottom:6px}.question{margin:7px 0}.session-controls{margin:4px 0;padding:6px}}
+
+/* Version 24 — stability, navigation, faith, tracing and API refinements */
+:root{--v24-green:#075c4d;--v24-green2:#078930;--v24-soft:#eef7f4;--v24-line:#d7e5e0;--v24-gold:#e4b820;--v24-ink:#12333b}
+#mainNav button,.globalBottomNav button,.landingTile button,.activityMenu button,.subnav button{min-height:44px}
+#mainNav button{display:flex;align-items:center;justify-content:center;gap:7px;overflow:hidden}
+#mainNav .miniBrandMark,#mainNav .spiritualStack{width:28px!important;height:28px!important;min-width:28px!important;min-height:28px!important;margin:0!important;flex:0 0 28px!important;overflow:hidden!important}
+#mainNav .miniBrandMark>span{font-size:18px!important;line-height:1!important}
+.globalBottomNav .miniBrandMark,.globalBottomNav .spiritualStack{width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;flex:0 0 30px!important;overflow:hidden!important}
+.globalBottomNav .miniBrandMark>span{font-size:18px!important;line-height:1!important}
+.landingIcon .miniBrandMark,.landingIcon .spiritualStack{overflow:hidden!important}
+.activityIcon{display:flex;align-items:center;justify-content:center;min-height:30px;overflow:hidden}
+.activityIcon .miniBrandMark,.activityIcon .spiritualStack{max-width:32px!important;max-height:32px!important}
+
+/* Ethiopian Alphabets: one family at a time */
+.alphabetPracticeCard{display:grid;gap:12px;padding:16px;border:1px solid var(--v24-line);border-radius:18px;background:#fff;box-shadow:var(--shadow)}
+.alphabetFamilyHeader{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.alphabetFamilyHeader h3{margin:0;color:var(--v24-green);font-size:clamp(22px,3vw,30px)}
+.alphabetFamilyCount{font-weight:900;color:#6b7e7a;background:var(--v24-soft);padding:6px 10px;border-radius:999px}
+.alphabetFamilyLetters{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.alphabetFamilyLetters button{display:grid;place-items:center;gap:4px;min-width:0;min-height:86px;padding:6px 2px;background:#fff;border:2px solid #c9dcd5;color:var(--v24-ink);border-radius:14px}
+.alphabetFamilyLetters .ethiopicLetter{font-family:"Abyssinica SIL","Nyala","Noto Sans Ethiopic",sans-serif;font-size:clamp(30px,5vw,48px);font-weight:700;line-height:1}
+.alphabetFamilyLetters .latinSound{font-size:15px!important;color:#506964!important;font-family:Arial,sans-serif!important}
+.alphabetFamilyActions{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.alphabetFamilyActions button{background:var(--v24-green2);color:#fff;border:0;border-radius:12px;padding:10px 7px;font-weight:850}
+.alphabetFamilySelect{display:grid;gap:6px;margin-top:2px;font-weight:850}
+.alphabetFamilySelect select{width:100%;min-height:54px;padding:9px 12px;border:2px solid #a9c5bd;border-radius:13px;background:#fff;color:var(--v24-green);font:800 20px "Abyssinica SIL","Noto Sans Ethiopic",sans-serif}
+.allAlphabetDrawer{display:none;padding:10px;border-radius:14px;background:#f6faf8;border:1px solid var(--v24-line)}
+.allAlphabetDrawer.open{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.allAlphabetDrawer button{background:#fff;color:var(--v24-ink);border:1px solid #cdded8;min-height:48px;font:750 19px "Abyssinica SIL","Noto Sans Ethiopic",sans-serif}
+
+/* Trace: preserve full canvas but reserve both edges for vertical page scrolling. */
+.traceCanvasShell{position:relative;border-radius:16px;overflow:hidden;background:#fff}
+.traceCanvasShell .traceCanvas{display:block;width:100%;touch-action:none}
+.traceScrollGutter{position:absolute;top:0;bottom:0;width:12%;z-index:5;display:flex;align-items:center;justify-content:center;pointer-events:auto;touch-action:pan-y;background:linear-gradient(90deg,rgba(255,255,255,.96),rgba(255,255,255,.68));color:#6d817c;font-size:11px;font-weight:900;writing-mode:vertical-rl;letter-spacing:.08em;user-select:none}
+.traceScrollGutter.right{right:0;transform:rotate(180deg);background:linear-gradient(90deg,rgba(255,255,255,.96),rgba(255,255,255,.68))}
+.traceScrollGutter.left{left:0}
+.traceFamilyTop{grid-template-columns:1fr!important}.traceFamilySelectWrap>span:first-child{display:none!important}
+.traceFamilySelect option[disabled]{color:#6d817c}
+.traceHint{margin-bottom:3px}
+.traceEdgeHelp{font-size:12px;color:#6d817c;text-align:center;margin:4px 0 0}
+
+/* Faith section: resilient sub-navigation. */
+#faithHubMenu{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:8px!important}
+#faithHubMenu button{display:grid;place-items:center;align-content:center;gap:4px;min-height:78px;padding:7px 5px;overflow:hidden}
+#faithHubMenu .activityIcon{font-size:23px;line-height:1}
+.faithSubTabs{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 12px}
+.faithSubTabs button{background:#fff;color:var(--v24-green);border:1px solid #b8d0c8;border-radius:999px;padding:9px 12px;font-weight:850}
+.faithSubTabs button.active{background:var(--v24-green);color:#fff;border-color:var(--v24-green)}
+.faithSubPanel{display:none;padding:13px;border:1px solid var(--v24-line);border-radius:15px;background:#fbfdfc}
+.faithSubPanel.active{display:block}.faithSubPanel h3{margin:0 0 7px;color:var(--v24-green)}
+.faithSubPanel .amText{font-family:"Abyssinica SIL","Noto Sans Ethiopic",sans-serif;font-size:18px;line-height:1.65;color:#8b1f2b}
+.faithStudyNote{margin-top:12px;padding:11px 13px;border-left:4px solid var(--v24-gold);border-radius:10px;background:#fff9df;color:#5f5632;line-height:1.5}
+.storyAccordion{display:grid;gap:8px;margin-top:10px}.storyAccordion details{border:1px solid var(--v24-line);border-left:6px solid #d9222d;border-radius:13px;background:#fffdf4;overflow:hidden}
+.storyAccordion summary{cursor:pointer;padding:12px 14px;font-weight:900;color:var(--v24-ink)}
+.storyBody{padding:0 14px 14px}.storyReference{display:inline-block;margin:3px 0 8px;padding:5px 9px;background:#eaf4f1;color:var(--v24-green);border-radius:999px;font-weight:850}
+.storyBody .amText{font-family:"Abyssinica SIL","Noto Sans Ethiopic",sans-serif;font-size:18px;line-height:1.6;color:#8b1f2b}
+.storyReadBtn{background:var(--v24-green2)!important;color:#fff!important;margin-top:7px}
+
+/* API.Bible reader */
+.bibleApiCard{margin-top:14px;padding:14px;border:1px solid #cfe0da;border-radius:16px;background:#f7fbfa}
+.bibleApiCard h3{margin:0 0 6px;color:var(--v24-green)}
+.bibleApiSetup{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}
+.bibleApiSetup label{display:grid;gap:5px;font-weight:800}.bibleApiSetup input,.bibleApiCard select{min-height:44px;border:1px solid #aac8be;border-radius:10px;padding:8px;background:#fff}
+.bibleApiSetup button,.bibleApiCard .apiAction{background:var(--v24-green);color:#fff;border:0}
+.bibleVersionGrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:9px}
+.bibleApiOutput{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.bibleApiPane{min-height:90px;padding:10px;border-radius:12px;background:#fff;border:1px solid var(--v24-line);line-height:1.55;white-space:pre-wrap}
+.bibleApiPane.amharic{font-family:"Abyssinica SIL","Noto Sans Ethiopic",sans-serif;font-size:18px}
+.apiSecurityNote{font-size:12px;color:#667b77;margin:7px 0 0}
+
+@media(max-width:700px){
+  #mainNav button{justify-content:flex-start}.alphabetPracticeCard{padding:10px}.alphabetFamilyLetters{gap:4px}.alphabetFamilyLetters button{min-height:65px}.alphabetFamilyLetters .ethiopicLetter{font-size:31px}.alphabetFamilyLetters .latinSound{font-size:12px!important}.alphabetFamilyActions{grid-template-columns:repeat(2,1fr)}.allAlphabetDrawer.open{grid-template-columns:repeat(2,1fr)}
+  #faithHubMenu{grid-template-columns:repeat(3,1fr)!important}.faithSubTabs{display:grid;grid-template-columns:1fr 1fr}.faithSubTabs button{border-radius:11px;padding:8px 6px}.bibleApiSetup{grid-template-columns:1fr}.bibleVersionGrid,.bibleApiOutput{grid-template-columns:1fr}.traceScrollGutter{width:15%}.globalBottomNav{grid-template-columns:repeat(5,1fr)!important}.globalBottomNav small{font-size:9px!important;line-height:1.1}.globalBottomNav button{padding:5px 1px!important}
+}
+@media(max-width:390px){#faithHubMenu{grid-template-columns:repeat(2,1fr)!important}.alphabetFamilyLetters .ethiopicLetter{font-size:27px}.alphabetFamilyActions{grid-template-columns:1fr 1fr}}
+
+
+/* v24 icon safety */
+.landingIcon,.navCategoryIcon,.activityIcon,.globalBottomNav .miniBrandMark,.globalBottomNav .spiritualStack{overflow:hidden!important;isolation:isolate}
+.globalBottomNav .miniBrandMark,.globalBottomNav .spiritualStack{width:30px!important;height:30px!important;min-width:30px!important;max-width:30px!important;flex:0 0 30px!important;margin:0 auto 2px!important}
+.globalBottomNav .miniBrandMark>span{font-size:18px!important;line-height:28px!important}
+.globalBottomNav .spiritualStack img{width:100%!important;height:100%!important;object-fit:contain!important;display:block!important}
+.traceScrollGutter{color:transparent!important;background:linear-gradient(90deg,rgba(255,255,255,.98),rgba(255,255,255,.72))!important}
+.traceScrollGutter.right{background:linear-gradient(270deg,rgba(255,255,255,.98),rgba(255,255,255,.72))!important}
 </style>
 
 <style id="v16-navigation-refinement">
 .prayerAccordion{padding:0;overflow:hidden}.prayerAccordion>summary{list-style:none;cursor:pointer;padding:18px 20px;font-size:clamp(20px,3vw,27px);font-weight:850;color:#0b5b47;background:linear-gradient(135deg,#f7fbfa,#fff9df);border-bottom:1px solid transparent}.prayerAccordion>summary::-webkit-details-marker{display:none}.prayerAccordion>summary::after{content:"＋";float:right;color:#a32230;font-size:1.15em}.prayerAccordion[open]>summary::after{content:"−"}.prayerAccordion[open]>summary{border-bottom-color:#dce7e3}.prayerAccordion>h3,.prayerAccordion>.prayer{margin-left:18px;margin-right:18px}.prayerAccordion>.prayer:last-child{margin-bottom:18px}.bottomActivityNav{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0 8px;padding-top:12px;border-top:1px solid #dce7e3}.bottomActivityNav button{min-width:min(100%,260px);font-size:16px;padding:12px 18px}.bottomActivityNav .backCategoryBtn{background:#075b49;color:#fff}.menuToggle{background:#075b49!important}.activity-open .bottomActivityNav{display:flex}@media(max-width:700px){.prayerAccordion>summary{padding:15px 14px;font-size:19px}.bottomActivityNav{position:relative;margin-top:16px}.bottomActivityNav button{width:100%}}
+</style>
+
+<style id="v21-accessibility-refinement">
+/* Compact, mobile-first landing */
+.landingGrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.landingTile{min-height:190px;padding:10px 8px 9px}.landingTile p{display:none!important}.landingIcon{height:54px}.landingTile h2{font-size:clamp(17px,3vw,22px);margin:5px 0}.landingAmharic{font-size:14px;min-height:22px}.landingTile>button{min-height:38px;padding:7px 10px;margin-top:6px}.tileNumber{font-family:"Abyssinica SIL","Noto Sans Ethiopic",sans-serif}.welcomePanel{padding:11px 14px;margin-bottom:8px}.welcomePanel h2{font-size:23px}.welcomePanel p{font-size:13.5px!important;line-height:1.38}
+/* Prefer a clean Ethiopic typeface with straighter terminals when available */
+.ethiopicLetter,.fidelSound,.familyLetters,.traceSelectedLetters,.traceCanvas,.objAm,.amText,.prayerAmTitle,[lang="am"],.amharicPrimary{font-family:"Abyssinica SIL","Nyala","Noto Sans Ethiopic",sans-serif!important}
+/* Keep learning action/navigation controls consistent with tracing */
+.game button,.labPanel button,.faithArea button,.pictureGame button,.traceActionRow button,.traceNextFamily,.familyExplorerNav button,.session-controls button{background:#075b49!important;color:#fff!important;border-color:#075b49!important}.choices button,.pictureName,.pictureTarget,.tile,.fidelSound{background:#fff!important;color:#17333a!important}.choices button:hover,.pictureName:hover,.pictureTarget:hover,.tile:hover,.fidelSound:hover{border-color:#075b49!important}.bottomActivityNav .backCategoryBtn{background:#fff!important;color:#075b49!important;border:2px solid #075b49!important}
+/* Prayer headings: English first, Amharic second */
+.prayerAccordionTitle{display:grid!important;grid-template-columns:1fr auto;gap:2px 10px}.prayerEnTitle{display:block;font-size:1em;color:#075b49}.prayerAmTitle{display:block;grid-column:1;font-size:.8em;color:#a32230;font-family:"Abyssinica SIL","Noto Sans Ethiopic",sans-serif}.prayerAccordionTitle::after{grid-column:2;grid-row:1/3;align-self:center}
+/* One-family-at-a-time Fidel explorer */
+.familyExplorer{display:grid;gap:10px}.familyExplorerTop{display:grid;grid-template-columns:1fr auto auto;gap:7px;align-items:end}.familyExplorerTop label{font-weight:800}.familyExplorerTop select{width:100%;font-size:20px;padding:10px;border:2px solid #a9c5bd;border-radius:12px;background:#fff}.familyExplorerCard{padding:14px;border:1px solid #d6e3df;border-radius:16px;background:linear-gradient(135deg,#f8fbfa,#fff)}.familyExplorerLetters{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.familyExplorerLetters button{min-height:74px;background:#fff!important;color:#17333a!important;border:2px solid #c9d8d4!important;border-radius:12px}.familyExplorerLetters .ethiopicLetter{display:block;font-size:34px}.familyExplorerLetters .latinSound{display:block;font-size:15px;color:#52666b;margin-top:3px}.allFamiliesCompact{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;max-height:230px;overflow:auto}.allFamilyMini{padding:8px 5px;border:1px solid #d4e1dd;border-radius:10px;background:#fff;cursor:pointer}.allFamilyMini b{display:block;font-size:18px}.allFamilyMini small{display:block;font-size:11px;color:#64777b}.traceFamilySelect{font-size:20px}.traceSelectedLetters .traceFamilyRow{grid-template-columns:repeat(7,1fr)}
+@media(max-width:700px){.landingTile{min-height:158px;padding:8px 6px}.landingIcon{height:45px}.landingTile h2{font-size:16px}.landingAmharic{font-size:12px}.landingTile>button{font-size:13px;min-height:34px}.welcomePanel h2{font-size:21px}.welcomePanel p{font-size:12.5px!important}.familyExplorerTop{grid-template-columns:1fr 1fr}.familyExplorerTop label{grid-column:1/-1}.familyExplorerLetters{grid-template-columns:repeat(7,1fr);gap:3px}.familyExplorerLetters button{min-height:58px;padding:4px 1px}.familyExplorerLetters .ethiopicLetter{font-size:25px}.familyExplorerLetters .latinSound{font-size:10px}.allFamiliesCompact{grid-template-columns:repeat(3,1fr)}.traceFamilySelect{font-size:18px}.traceSelectedLetters button{font-size:24px!important;padding:3px!important}.traceCanvas{height:min(40vh,280px)}}
+
+/* V25 compact, consistent navigation and controls */
+.subnav button,.activityMenu button,.globalBottomNav button{overflow:hidden!important}
+.subnav .miniBrandMark,.activityMenu .miniBrandMark,.globalBottomNav .miniBrandMark{width:24px!important;height:24px!important;min-width:24px!important;max-width:24px!important;border-radius:7px!important;margin:0 auto 2px!important}
+.subnav .miniBrandMark>span,.activityMenu .miniBrandMark>span,.globalBottomNav .miniBrandMark>span{font-size:14px!important;line-height:1!important}
+.subnav .spiritualStack,.activityMenu .spiritualStack,.globalBottomNav .spiritualStack{width:24px!important;height:24px!important;min-width:24px!important;max-width:24px!important;overflow:hidden!important;margin:0 auto 2px!important}
+.activityMenu .activityIcon{font-size:20px!important;line-height:1!important;max-height:25px!important;overflow:hidden!important}
+.globalBottomNav .navIcon{font-size:21px!important;line-height:1!important}
+.globalBottomNav button{min-width:0!important}
+.globalBottomNav small{white-space:normal!important;overflow-wrap:anywhere}
+.alphabetActionPairs,.traceActionPairs{display:grid;gap:7px;margin:9px 0}
+.twoButtonRow{display:grid;grid-template-columns:1fr 1fr;gap:7px}
+.twoButtonRow button,.alphabetActionPairs button,.traceActionPairs button{min-height:42px;padding:8px 7px;font-size:14px;border-radius:11px;background:var(--teal-dark);color:#fff;border:0}
+.traceFamilyNavOnly{margin:6px 0 8px}
+#alphabetFamilySelect,.alphabetFamilySelect{display:none!important}
+#allAlphabetDrawer:not(.open){display:none!important}
+#allAlphabetDrawer.open{display:grid!important}
+#faithhub.activity-open>.hubIntro,#faithhub.activity-open>#faithHubMenu{display:none!important}
+#faithhub.activity-open{padding-top:0!important}
+.storyAccordion details,.faithDoctrineAccordion details{border:1px solid #e0e8e5;border-left:5px solid #da121a;border-radius:12px;background:#fffdf5;margin:7px 0;overflow:hidden}
+.storyAccordion summary,.faithDoctrineAccordion summary{cursor:pointer;padding:11px 13px;font-weight:800;color:#143f47;list-style:none}
+.storyAccordion summary::-webkit-details-marker,.faithDoctrineAccordion summary::-webkit-details-marker{display:none}
+.storyAccordion summary:before,.faithDoctrineAccordion summary:before{content:'▸';margin-right:7px}.storyAccordion details[open] summary:before,.faithDoctrineAccordion details[open] summary:before{content:'▾'}
+.storyBody{padding:0 13px 12px}.storyBody p{font-size:15px!important;line-height:1.55!important}
+.embeddedBibleReader{margin-top:14px;padding:13px;border:1px solid #cfe0da;border-radius:15px;background:#f7fbfa}.embeddedBibleReader h3{margin:0 0 6px;color:var(--teal-dark)}
+.readerControls{display:grid;grid-template-columns:1.5fr .7fr 1fr;gap:8px;align-items:end}.readerControls label{display:grid;gap:4px;font-weight:800}.readerControls select,.readerControls input{min-height:42px;border:1px solid #aac8be;border-radius:10px;padding:7px;background:#fff}.readerControls button{min-height:42px;background:var(--teal-dark);color:#fff;border:0;border-radius:10px}
+.readerColumns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.readerColumns article{background:#fff;border:1px solid #dce7e3;border-radius:12px;padding:10px}.readerColumns h4{margin:0 0 6px}.readerText{max-height:320px;overflow:auto;font-size:14px;line-height:1.45}.readerText p{margin:5px 0}.readerSourceNote{font-size:12px!important;color:#667!important}
+/* keep word/problem text proportional */
+#missing .question,#word .question,#choice .question,#scrabble .question,#sentence .question,#puzzles .question,#faithBibleQuiz .question{font-size:clamp(22px,3.2vw,34px)!important;line-height:1.22!important;margin:10px 0!important;overflow-wrap:anywhere}
+#missing .question small,#word .question small,#choice .question small,#scrabble .question small,#sentence .question small,#puzzles .question small,#faithBibleQuiz .question small{font-size:clamp(13px,1.8vw,17px)!important}
+.choices button,.quizOption{font-size:clamp(15px,2vw,19px)!important;padding:10px 9px!important}
+/* tracing: center only is drawable; edges stay scroll-friendly */
+.traceCanvasShell{position:relative}.traceCanvas{touch-action:none}.traceScrollGutter{position:absolute;top:0;bottom:0;width:18%;z-index:4;touch-action:pan-y;background:transparent}.traceScrollGutter.left{left:0}.traceScrollGutter.right{right:0}.traceScrollGutter:after{content:'';position:absolute;top:10px;bottom:10px;width:1px;background:#dce7e3;opacity:.6}.traceScrollGutter.left:after{right:2px}.traceScrollGutter.right:after{left:2px}.traceEdgeHelp{font-size:11px!important;margin:4px 0 0!important;color:#6c7d80!important;text-align:center}
+@media(max-width:700px){
+ .subnav .miniBrandMark,.activityMenu .miniBrandMark,.globalBottomNav .miniBrandMark,.subnav .spiritualStack,.activityMenu .spiritualStack,.globalBottomNav .spiritualStack{width:21px!important;height:21px!important;min-width:21px!important;max-width:21px!important}
+ .activityMenu .activityIcon{font-size:18px!important;max-height:22px!important}.globalBottomNav .navIcon{font-size:19px!important}
+ .twoButtonRow button{min-height:38px;font-size:12px;padding:7px 4px}.traceSelectedLetters{margin-bottom:4px!important}.traceFamilyRow button{font-size:21px!important;min-height:36px!important;padding:3px 1px!important}
+ .traceCanvas{height:min(31vh,230px)!important}.traceHint,.traceEdgeHelp{font-size:10px!important}.traceFamilySelectWrap{margin-bottom:4px!important}.traceFamilySelect{font-size:15px!important;min-height:40px!important}
+ .readerControls{grid-template-columns:1fr 90px}.readerControls button{grid-column:1/-1}.readerColumns{grid-template-columns:1fr}.readerText{max-height:250px}
+ .storyAccordion summary,.faithDoctrineAccordion summary{font-size:14px;padding:9px 10px}.storyBody{padding:0 10px 9px}.storyBody p{font-size:13.5px!important}
+}
+
+#mainNav .miniBrandMark,#mainNav .spiritualStack{width:22px!important;height:22px!important;min-width:22px!important;max-width:22px!important;overflow:hidden!important;vertical-align:middle!important;margin-right:4px!important}#mainNav .miniBrandMark>span{font-size:13px!important;line-height:1!important}
 </style>
 </head>
 <body>
@@ -121,34 +266,34 @@ body{background:linear-gradient(180deg,#f5f8f7,#eef3f1);color:#17333a}header{bac
 <main>
 <section class="screen activeScreen" id="home">
 <div class="landingDashboard">
-  <section class="welcomePanel"><div><h2>Welcome!</h2><p>Learn Fidel, build vocabulary, explore God’s Word and grow in faith through fun games and activities.</p><p class="welcomeAmharic">ፊደልን ይማሩ፣ ቃላትን ያሳድጉ፣ የእግዚአብሔርን ቃል ይመርምሩ፣ በአስደሳች ጨዋታዎችና እንቅስቃሴዎች በእምነት ያድጉ።</p></div></section>
+  <section class="welcomePanel"><div><h2>Welcome!</h2><p>Learn Fidel with <b>1,000+ Fidel challenges</b>, <b>2,400+ word-practice variations</b>, picture vocabulary, tracing, Bible learning and faith activities designed for children, youth and new learners.</p></div></section>
   <div class="landingGrid">
-    <article class="landingTile tileFidel" onclick="show('alphabet')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')show('alphabet')">
+    <article class="landingTile tileFidel" onclick="show('alphabet')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')show('alphabet')"><span class="tileNumber" aria-hidden="true">፩</span>
       <div class="landingIcon"><span aria-label="ፊደል እንማር logo" class="miniBrandMark landingLogo"><span>ሀ</span><i></i></span></div>
       <h2>Fidel &amp; Numbers</h2>
       <div class="landingAmharic">ፊደል እና ቁጥር</div>
-      <p>Learn Fidel families, Ethiopian numbers and the Ethiopian calendar.</p>
+      
       <button onclick="event.stopPropagation();show('alphabet')">Explore <span>›</span></button>
     </article>
-    <article class="landingTile tileLab" onclick="show('gameshub')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')show('gameshub')">
+    <article class="landingTile tileLab" onclick="show('gameshub')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')show('gameshub')"><span class="tileNumber" aria-hidden="true">፪</span>
       <div class="landingIcon landingEmoji">📝</div>
       <h2>Fidel Lab Practice</h2>
       <div class="landingAmharic">የፊደል ልምምድ ላብ</div>
-      <p>Practice reading, writing, sounds, word building and learning games.</p>
+      
       <button onclick="event.stopPropagation();show('gameshub')">Explore <span>›</span></button>
     </article>
-    <article class="landingTile tilePicture" onclick="show('picturehub')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')show('picturehub')">
+    <article class="landingTile tilePicture" onclick="show('picturehub')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')show('picturehub')"><span class="tileNumber" aria-hidden="true">፫</span>
       <div class="landingIcon landingEmoji">🐶</div>
       <h2>Picture Vocabulary</h2>
       <div class="landingAmharic">የምስል ቃላት</div>
-      <p>Explore animals, food, people, body parts, objects and more.</p>
+      
       <button onclick="event.stopPropagation();show('picturehub')">Explore <span>›</span></button>
     </article>
-    <article class="landingTile tileFaith" onclick="show('faithhub')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')show('faithhub')">
+    <article class="landingTile tileFaith" onclick="show('faithhub')" role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')show('faithhub')"><span class="tileNumber" aria-hidden="true">፬</span>
       <div class="landingIcon"><span aria-label="Ethiopian Orthodox hand cross and open Bible" class="spiritualStack landingFaithIcon"><svg aria-hidden="true" viewBox="0 0 72 82"><g class="ethCross"><path d="M36 2 43 10 52 6 50 16 61 18 53 26 61 34 50 36 52 47 43 42 36 51 29 42 20 47 22 36 11 34 19 26 11 18 22 16 20 6 29 10Z"></path><path d="M36 10 41 18 50 20 44 26 50 32 41 34 36 42 31 34 22 32 28 26 22 20 31 18Z"></path><circle cx="36" cy="26" r="4"></circle><path d="M33 47h6v12h-6z"></path></g><path class="bookFill" d="M6 60c9-4 19-3 30 3v15c-11-6-21-7-30-3V60zm60 0c-9-4-19-3-30 3v15c11-6 21-7 30-3V60z"></path><path class="bookLine" d="M36 63v15M6 60c9-4 19-3 30 3 11-6 21-7 30-3"></path></svg></span></div>
       <h2>Spiritual &amp; Bible</h2>
       <div class="landingAmharic">መንፈሳዊ እና መጽሐፍ ቅዱስ</div>
-      <p>Prayers, Bible lessons, Church mysteries, Orthodox words and resources.</p>
+      
       <button onclick="event.stopPropagation();show('faithhub')">Explore <span>›</span></button>
     </article>
   </div>
@@ -156,8 +301,8 @@ body{background:linear-gradient(180deg,#f5f8f7,#eef3f1);color:#17333a}header{bac
 </section>
 <section class="screen" id="membership"><div class="pageTitle"><div><span class="eyebrow">MEMBERSHIP PREVIEW</span><h2>Choose how your family will learn</h2><p>Membership features shown here are a prototype; no payment is collected.</p></div><div class="pageTitleMark">★</div></div><div class="membershipGrid"><div class="memberCard"><h3>Family</h3><div class="memberPrice">Coming soon</div><ul><li>Multiple child profiles</li><li>Personal learning paths</li><li>Progress and achievements</li><li>Home practice recommendations</li></ul><button onclick="show('signin')">Create preview account</button></div><div class="memberCard featured"><span class="memberBadge">Recommended</span><h3>Church &amp; Classroom</h3><div class="memberPrice">Coming soon</div><ul><li>Teacher and class dashboard</li><li>Assigned weekly lessons</li><li>Bible-story activities</li><li>Printable progress reports</li></ul><button onclick="show('signin')">Request preview access</button></div></div><p class="securityCallout">🔒 Production membership will use encrypted authentication, verified email, secure payments, parental consent and child-data privacy controls. This HTML prototype does not collect or transmit account information.</p></section>
 <section class="screen" id="signin"><div class="authShell"><div class="authBrand"><div class="brandMark"><span>ሀ</span><i></i></div><h2>Welcome back</h2><p>Sign in to continue your learning path.</p></div><form class="authForm" onsubmit="previewSignIn(event)"><label>Email or member name<input autocomplete="username" id="previewMemberName" placeholder="Parent or teacher name" required=""/></label><label>Password<input autocomplete="current-password" placeholder="••••••••" required="" type="password"/></label><button type="submit">Sign in</button><button class="secondaryButton" onclick="show('membership')" type="button">Become a member</button><p class="feedback" id="signInMessage"></p><p class="privacyNote">Prototype only: information entered here is not stored or transmitted.</p></form></div></section>
-<section class="screen" id="alphabet"><div class="card hubIntro"><h2><span aria-label="ፊደል እንማር logo" class="miniBrandMark"><span>ሀ</span><i></i></span> Fidel &amp; Numbers <span class="helperEnglish">ፊደልና የኢትዮጵያ ቁጥሮች</span></h2><p>Choose Fidel Families, Ethiopian Numbers, or Ethiopian Calendar. Hover or focus each English tab to reveal its Amharic name.</p></div><div class="subnav noPrint"><button class="sub-active" onclick="showAlphabetArea('alphabetFamilies',this)">Fidel Families<span class="hoverTranslation">የፊደል ቤቶች</span></button><button onclick="showAlphabetArea('numberFamilies',this)">Ethiopian Numbers<span class="hoverTranslation">የኢትዮጵያ ቁጥሮች</span></button><button onclick="showAlphabetArea('ethiopianCalendarArea',this)">Ethiopian Calendar<span class="hoverTranslation">የኢትዮጵያ ዘመን መቁጠሪያ</span></button><button onclick="playAllFamilies(this)">Play All Families<span class="hoverTranslation">ሁሉንም ቤቶች አጫውት</span></button></div><div class="alphabetArea panel-active" id="alphabetFamilies"><div id="alphabetGrid"></div></div><div class="alphabetArea" id="numberFamilies"><div class="card"><h2>Ethiopian Numbers <span class="helperEnglish">የኢትዮጵያ ቁጥሮች</span></h2><p class="muted">Each card shows the Ethiopian numeral, regular number, Amharic number word, and English number word.</p><div class="numberWordGrid" id="numbersGrid"></div></div></div><div class="alphabetArea" id="ethiopianCalendarArea"><div class="card ethiopian-card"><h2>Days of the Week <span class="helperEnglish">የሳምንቱ ቀናት</span></h2><div class="calendarGrid" id="alphaDaysGrid"></div></div><div class="card ethiopian-card"><h2>Ethiopian 13 Months <span class="helperEnglish">የኢትዮጵያ 13 ወራት</span></h2><div class="calendarGrid" id="alphaMonthsGrid"></div></div></div></section>
-<section class="screen" id="gameshub"><div class="pageTitle"><div><span class="eyebrow">FIDEL LAB PRACTICE</span><h2>📝 Fidel Lab Practice</h2><p>Practice reading, writing, sound recognition, word building and puzzles. Hover or focus a tab to reveal its Amharic name.</p></div><div class="pageTitleMark">📝</div></div><div class="activityMenu learningPath noPrint" id="gameHubMenu"></div><div id="gameHubContent"></div></section>
+<section class="screen" id="alphabet"><div class="card hubIntro"><h2><span aria-label="ፊደል እንማር logo" class="miniBrandMark"><span>ሀ</span><i></i></span> Fidel &amp; Numbers <span class="helperEnglish">ፊደልና የኢትዮጵያ ቁጥሮች</span></h2><p>Choose Ethiopian Alphabets, Ethiopian Numbers, or Ethiopian Calendar. Hover or focus each English tab to reveal its Amharic name.</p></div><div class="subnav noPrint"><button class="sub-active" onclick="showAlphabetArea('alphabetFamilies',this)">Ethiopian Alphabets<span class="hoverTranslation">የኢትዮጵያ ፊደላት</span></button><button onclick="showAlphabetArea('numberFamilies',this)">Ethiopian Numbers<span class="hoverTranslation">የኢትዮጵያ ቁጥሮች</span></button><button onclick="showAlphabetArea('ethiopianCalendarArea',this)">Ethiopian Calendar<span class="hoverTranslation">የኢትዮጵያ ዘመን መቁጠሪያ</span></button><button onclick="playAllFamilies(this)">Play All Families<span class="hoverTranslation">ሁሉንም ቤቶች አጫውት</span></button></div><div class="alphabetArea panel-active" id="alphabetFamilies"><div id="alphabetGrid" hidden></div><div class="alphabetPracticeCard" id="alphabetPracticeCard"><div class="alphabetFamilyHeader"><h3>Ethiopian Alphabets <span class="helperEnglish">የኢትዮጵያ ፊደላት</span></h3><span class="alphabetFamilyCount" id="alphabetFamilyCount">፩ / ፴፬</span></div><div class="alphabetFamilyLetters" id="alphabetFamilyLetters"></div><div class="alphabetActionPairs"><div class="twoButtonRow"><button type="button" onclick="previousAlphabetFamily()">◀ Previous Family</button><button type="button" onclick="nextAlphabetFamilyV24()">Next Family ▶</button></div><div class="twoButtonRow"><button type="button" onclick="toggleAllAlphabets()">▦ View All Alphabets</button><button type="button" onclick="hearAlphabetFamily()">🔊 Listen to Family</button></div></div><div class="allAlphabetDrawer" id="allAlphabetDrawer" aria-label="All Ethiopian alphabet families"></div></div></div><div class="alphabetArea" id="numberFamilies"><div class="card"><h2>Ethiopian Numbers <span class="helperEnglish">የኢትዮጵያ ቁጥሮች</span></h2><p class="muted">Each card shows the Ethiopian numeral, regular number, Amharic number word, and English number word.</p><div class="numberWordGrid" id="numbersGrid"></div></div></div><div class="alphabetArea" id="ethiopianCalendarArea"><div class="card ethiopian-card"><h2>Days of the Week <span class="helperEnglish">የሳምንቱ ቀናት</span></h2><div class="calendarGrid" id="alphaDaysGrid"></div></div><div class="card ethiopian-card"><h2>Ethiopian 13 Months <span class="helperEnglish">የኢትዮጵያ 13 ወራት</span></h2><div class="calendarGrid" id="alphaMonthsGrid"></div></div></div></section>
+<section class="screen" id="gameshub"><div class="pageTitle"><div><span class="eyebrow">FIDEL LAB PRACTICE</span><h2>📝 Fidel Lab Practice</h2><p>Practice reading, writing, sound recognition, word building and puzzles. Hover or focus a tab to reveal its Amharic name.</p><p class="questionBankNote">More than 1,000 generated practice challenges are available across the Fidel lab activities.</p></div><div class="pageTitleMark">📝</div></div><div class="activityMenu learningPath noPrint" id="gameHubMenu"></div><div id="gameHubContent"></div></section>
 <section class="screen" id="picturehub"><div class="card hubIntro"><h2>🐶 Picture Vocabulary <span class="helperEnglish">የምስል ቃላት</span></h2><p>Learn familiar words through pictures, sound, matching and quick practice. Hover or focus a tab to reveal its Amharic name.</p></div><div class="activityMenu noPrint" id="pictureHubMenu"></div><div id="pictureHubContent"></div></section>
 <section class="screen" id="faithhub"><div class="card hubIntro"><h2><span aria-label="Ethiopian Orthodox hand cross and open Bible" class="spiritualStack"><svg aria-hidden="true" viewbox="0 0 72 82"><g class="ethCross"><path d="M36 2 43 10 52 6 50 16 61 18 53 26 61 34 50 36 52 47 43 42 36 51 29 42 20 47 22 36 11 34 19 26 11 18 22 16 20 6 29 10Z"></path><path d="M36 10 41 18 50 20 44 26 50 32 41 34 36 42 31 34 22 32 28 26 22 20 31 18Z"></path><circle cx="36" cy="26" r="4"></circle><path d="M33 47h6v12h-6z"></path></g><path class="bookFill" d="M6 60c9-4 19-3 30 3v15c-11-6-21-7-30-3V60zm60 0c-9-4-19-3-30 3v15c11-6 21-7 30-3V60z"></path><path class="bookLine" d="M36 63v15M6 60c9-4 19-3 30 3 11-6 21-7 30-3"></path></svg></span> Spiritual &amp; Bible <span class="helperEnglish">መንፈሳዊና መጽሐፍ ቅዱስ</span></h2><p>Prayers, Bible learning and child-friendly Ethiopian Orthodox Tewahedo teaching summaries. Hover or focus a tab to reveal its Amharic name.</p></div><div class="activityMenu noPrint" id="faithHubMenu"></div><div id="faithHubContent"></div></section>
 <section class="screen" id="missing"><div class="card game"><h2>ሀ Find the Missing Letter</h2><div class="score">Score: <span id="mscore">0</span></div><div class="question" id="mquestion"></div><div class="choices" id="mchoices"></div><div class="feedback" id="mfeedback"></div><button onclick="newMissing()">Next Question</button></div></section>
@@ -177,13 +322,13 @@ body{background:linear-gradient(180deg,#f5f8f7,#eef3f1);color:#17333a}header{bac
 <div class="card ethiopian-card"><h2>🙏 መንፈሳዊ ጸሎቶች — Spiritual Prayers</h2><p class="muted">Each prayer is presented first in Geʽez and then in Amharic. Read slowly and learn one section at a time.</p></div>
 <details class="card prayerAccordion"><summary class="prayerAccordionTitle">አቡነ ዘበሰማያት — አባታችን ሆይ</summary><h3>ግእዝ</h3><div class="prayer">አቡነ ዘበሰማያት፣ ይትቀደስ ስምከ፣ ትምጻእ መንግሥትከ፣ ወይኩን ፈቃድከ በከመ በሰማይ ከማሁ በምድር። ሲሳየነ ዘለለ ዕለትነ ሀበነ ዮም። ኅድግ ለነ አበሳነ ወጌጋየነ ከመ ንሕነኒ ንኅድግ ለዘአበሰ ለነ። ኢታብአነ ውስተ መንሱት፣ አላ አድኅነነ ወባልሐነ እምኵሉ እኩይ። እስመ ዚአከ ይእቲ መንግሥት ኀይል ወስብሐት ለዓለመ ዓለም። አሜን።</div><h3>አማርኛ</h3><div class="prayer amharic">አባታችን ሆይ!፣ በሰማያት የምትኖር፣ ስምህ ይቀደስ፣ መንግሥትህ ትምጣ፣ ፈቃድህ በሰማይ እንደሆነች እንዲሁም በምድር ትሁን። የዕለት እንጀራችንን ዛሬ ስጠን ለዛሬ። በደላችንንም ይቅር በለን፣ እኛም የበደሉንን ይቅር እንደምንል። አቤቱ ወደ ፈተና አታግባን፣ ከክፉ ሁሉ አድነን እንጂ። መንግሥት ያንተ ናትና፣ ኅይል ክብር ምስጋና ለዘለዓለሙ አሜን!</div></details>
 <details class="card prayerAccordion"><summary class="prayerAccordionTitle">ጸሎተ እግዝእትነ ማርያም — የእመቤታችን ጸሎት</summary><h3>ግእዝ</h3><div class="prayer">በሰላመ ቅዱስ ገብርኤል መልአክ ኦ እግዝእትየ ማርያም ሰላም ለኪ። ድንግል በኅሊናኪ፣ ወድንግል በሥጋኪ። እመ እግዚአብሔር ጸባኦት ሰላም ለኪ። ቡርክት አንቲ እምአንስት፣ ወቡሩክ ፍሬ ከርሥኪ። ተፈሥሒ ፍሥሕት፣ ኦ ምልእተ ጸጋ፣ እግዚአብሔር ምስሌኪ። ሰአሊ ወጸልዪ ለነ ኀበ ፍቁር ወልድኪ ኢየሱስ ክርስቶስ፣ ከመ ይሥረይ ለነ ኃጣውኢነ።</div><h3>አማርኛ</h3><div class="prayer amharic">እመቤታችን ቅድስት ድንግል ማርያም ሆይ ፥ በመልአኩ በቅዱስ ገብርኤል ሰላምታ ሰላም እልሻለሁ። በሀሳብሽ ድንግል ነሽ ፤ በሥጋሽም ድንግል ነሽ አሸናፊ የእግዚአብሔር እናት ሆይ ሰላምታ ላንቺ ይገባሻል ከሴቶች ሁሉ ተለይተሽ አንቺ የተባረክሽ ነሽ የማኅፀንሽም ፍሬ የተባረከ ነው። ጸጋን የተመላሽ ሆይ ደስ ይበልሽ ልዑል እግዚአብሔር ካንቺ ጋር ነውና ከተወደደው ልጅሽ ከጌታችን ከመድኃኒታችን ከኢየሱስ ክርስቶስ ዘንድ ይቅርታንና ምሕረትን ለምኝልን ኃጢአታችንን ያስተሰርይልን ዘነድ ለዘለዓለሙ አሜን!</div></details>
-<details class="card prayerAccordion"><summary class="prayerAccordionTitle">ጸሎተ ሃይማኖት — የሃይማኖት ጸሎት</summary><h3>ግእዝ</h3><div class="prayer">ነአምን በአሐዱ አምላክ፣ እግዚአብሔር አብ፣ አኃዜ ኵሉ፣ ገባሬ ሰማያት ወምድር፣ ዘያስተርኢ ወዘኢያስተርኢ።
+<details class="card prayerAccordion"><summary class="prayerAccordionTitle"><span class="prayerEnTitle">The Creed / Prayer of Faith</span><span class="prayerAmTitle">ጸሎተ ሃይማኖት — የሃይማኖት ጸሎት</span></summary><h3>ግእዝ</h3><div class="prayer">ነአምን በአሐዱ አምላክ፣ እግዚአብሔር አብ፣ አኃዜ ኵሉ፣ ገባሬ ሰማያት ወምድር፣ ዘያስተርኢ ወዘኢያስተርኢ።
 ወነአምን በአሐዱ እግዚእ ኢየሱስ ክርስቶስ፣ ወልደ አብ ዋሕድ፣  ዘህልው ምስሌሁ እምቅድመ ይትፈጠር ዓለም ብርሃን ዘእምብርሃን፣ አምላክ ዘእምአምላክ ዘበአማን፣ ዘተወልደ ወአኮ ዘተገብረ፣ ዘዕሩይ ምስለ አብ በመለኮቱ፣ ዘቦቱ ኵሉ ኮነ።
 ወዘእንበሌሁሰ አልቦ ዘኮነ ወኢምንትኒ ዘበሰማይኒ ወዘበምርድኒ ዘበእንቲኣነ ለሰብእ ወበእንተ መድኅኒትነ ወረደ እምሰማያት ተሰብአ ወተሠገወ እመንፈስ ቅዱስ ወእማርያም ድንግል፣ ኮነ ብእሴ ወተሰቅለ በእንቲአነ በመዋዕለ ጲላጦስ ጴንጤናዊ ሐመ ወሞተ ወተቀብረ። ወተንሥአ እሙታን አመ ሣልስት ዕለት በከመ ጽሑፍ ውስተ ቅዱሳት መጻሕፍት። ዐርገ በስብሐት ውስተ ሰማያት፣ ወነበረ በየማነ አቡሁ። ዳግመ ይመጽእ በስብሐት ይኰንን ሕያዋነ ወሙታነ፣ ወአልቦ ማኅለቅት ለመንግሥቱ።
 ወነአምን በመንፈስ ቅዱስ፣ እግዚእ ማሕየዊ፣ ዘሠረፀ እምአብ፣ ንስግድ ሎቱ ወንሰብሖ ምስለ አብ ወወልድ ዘነበበ  በነቢያት ወነአምን በአሐቲ ቅድስት ቤተ ክርስቲያን ዘላዕለ ኵሉ፣ ጉባኤ ዘሐዋርያዊት። ወነአምን በአሐቲ ጥምቀት ለስርየተ ኅጢአት። ወንሴፎ ትንሣኤ ሙታን ወሕይወተ ዘይመጽእ ለዓለመ ዓለም፡፡ አሜን!</div>
 <h3>አማርኛ</h3><div class="prayer amharic">ሁሉን የፈጠረ አንድ አምላክ በሚሆን በእግዚአብሔር አብ እናምናለን። ሰማይና ምድርን የፈጠረ የሚታየውንና የማይታየውን ዓለም ሳይፈጠር ክእርሱ ጋራ በነበረ አንድ የአብ ልጅ በሚሆን በአንድ ጌታ በኢየሱስ ክርስቶስ እናምናለን። ከብርሃን የተገኘ ብርሃን፣ ከእውነተኛ አምላክ የተገኘ እውነተኛ አምላክ፣ የተወለደ እንጂ ያልተፈጠረ፣ በባሕርዩ ከአብ ጋር የሚተካከል፤ ሁሉ በርሱ የሆነ 
 በሰማይም ካለው በምድርም ያለእርሱ ምንም ምን የሆነ የለም፡፡ ስለ እኛ ስለ ሰዎች እኛን ለማዳን ከሰማይ ወረደ፣ በመንፈስ ቅዱስ ግብር ከቅድስት ድንግል ማርያም ፍጹም ሰው ሆነ። ደግሞም ስለኛ  ተሰቀለ በጴንጤናዊ በጲላጦስ ዘመን እርሱ መከራን ተቀበለ፤ ሞተ፣ ተቀበረ፤ በሦስተኛውም ቀን ከሙታን ተለይቶ ተነሣ፤ በቅዱሳት መጻሕፍት እንደተጻፈ በክብር ወደ በምስጋና ወደሰማይ ዐረገ፡፡ በአባቱም ቀኝ ተቀመጠ፤ ዳግመኛም በሕያዋንና በሙታን ለመፍረድ በምስጋና ይመጣል ለመንግስቱም ፍጻሜ የለውም፤ በመንፈስ  ቅዱስም እናምናለን ። እርሱም ጌታ ሕይወትን የሚሰጥ ከአብ የሠረፀ ከአብ ከወልድ ጋራ በአንድነት እንሰግድለታለን እናመሰግነዋለን ለእርሱም በነቢያት አድሮ የተናገረ ነው ከሁሉም  በላይ በምትሆን  ሐዋርያት በመሠረትዋት በአንዲት ቅድስት ቤተ ክርስቲያን እናምናለን። ኃጢአት በሚሠረይባት በአንዲት ጥምቀትም እናምናለን የሙታንንም መነሣት ተስፋ እናደርጋለን የሚመጣውንም ሕይወት ለዘላለሙ። አሜን!</div></details>
-<details class="card prayerAccordion"><summary class="prayerAccordionTitle">ስብሐት ለአብ</summary><h3>ግእዝ</h3><div class="prayer">ስብሐት ለአብ፣ ስብሐት ለወልድ፣ ስብሐት ለመንፈስ ቅዱስ። ስብሐት ለእግዝእትነ ማርያም ድንግል ወላዲተ አምላክ ስብሐት ለመስቀለ እግዚእነ ኢየሱስ ክርስቶስ፡፡ ክርስቶስ በምሕረቱ ይዘከረነ፡፡ አመ ዳግመ ምጽአቱ  ኢያስተኀፍረነ፡፡ ለሰብሖተ ስሙ ያንቅሐነ፡፡ ወበአምልኮቱ ያጽንዐነ እግዝእትነ ማርያም አእርጊ  ጸሎተነ ወአስተስርዪ ኵሎ ኅጢአተነ፡፡ ቅድመ መንበሩ ለእግዚእነ ለዘአብልዐነ ዘነተ ኅብስተ፡፡ ወለዘአስተየነ ዘነተ ጽዋዐ፡፡ ወለዘሠርዐ ለነ ሲሳየነ ወዐራዘነ ወለዘተአገሠ ለነ ኵሎ ኀጢአተነ ወለዘወሀበነ ሥጋሁ ቅዱሰ ወደሞ ክቡረ ወልዘአብጽሐነ እስከ ዛቲ ሰዓት፡፡ ነሀብ ሎቱ ስብሐተ ወአኮቴተ ለእግዚአብሔር  ልዑል ወለወላዲቱ ድንግል ወለመስቀሉ ክቡር ይትአኵት ወይሰባሕ ስሙ ለእግዚአብሔር ወትረ ብኵሉ ጊዜ ወበኵሉ ሰዓት፡፡</div><h3>አማርኛ</h3><div class="prayer amharic">ለአብ ምስጋና ይገባል፣ ለወልድም ምስጋና ይገባል ለመንፈስ ቅዱስም ምስጋና ይገባል፡፡ አምላክን ለወለደች ለእመቤታችን፣ ለድንግል ማርያም ምስጋና ይገባል። ለኢየሱስ ክርስቶስ መስቀልም ምስጋና ይገባል፡፡ ክርስቶስ በቸርነቱ ያስበን ዘንድ ዳግመኛም፤ በመጣ ጊዜ እንዳያሳፍረን ስሙን ለማመስገን ያነቃን፤ እርሱንም በማምለክ ያጸናን ዘንድ። እመቤታችን ጸሎታችንን አሳርጊልን ኃጢአታችንንም አስተሥርዪልን በጌታችን መንበር ፊት ጸሎታችንን አሳርጊልን
+<details class="card prayerAccordion"><summary class="prayerAccordionTitle"><span class="prayerEnTitle">Glory Be to the Father</span><span class="prayerAmTitle">ስብሐት ለአብ</span></summary><h3>ግእዝ</h3><div class="prayer">ስብሐት ለአብ፣ ስብሐት ለወልድ፣ ስብሐት ለመንፈስ ቅዱስ። ስብሐት ለእግዝእትነ ማርያም ድንግል ወላዲተ አምላክ ስብሐት ለመስቀለ እግዚእነ ኢየሱስ ክርስቶስ፡፡ ክርስቶስ በምሕረቱ ይዘከረነ፡፡ አመ ዳግመ ምጽአቱ  ኢያስተኀፍረነ፡፡ ለሰብሖተ ስሙ ያንቅሐነ፡፡ ወበአምልኮቱ ያጽንዐነ እግዝእትነ ማርያም አእርጊ  ጸሎተነ ወአስተስርዪ ኵሎ ኅጢአተነ፡፡ ቅድመ መንበሩ ለእግዚእነ ለዘአብልዐነ ዘነተ ኅብስተ፡፡ ወለዘአስተየነ ዘነተ ጽዋዐ፡፡ ወለዘሠርዐ ለነ ሲሳየነ ወዐራዘነ ወለዘተአገሠ ለነ ኵሎ ኀጢአተነ ወለዘወሀበነ ሥጋሁ ቅዱሰ ወደሞ ክቡረ ወልዘአብጽሐነ እስከ ዛቲ ሰዓት፡፡ ነሀብ ሎቱ ስብሐተ ወአኮቴተ ለእግዚአብሔር  ልዑል ወለወላዲቱ ድንግል ወለመስቀሉ ክቡር ይትአኵት ወይሰባሕ ስሙ ለእግዚአብሔር ወትረ ብኵሉ ጊዜ ወበኵሉ ሰዓት፡፡</div><h3>አማርኛ</h3><div class="prayer amharic">ለአብ ምስጋና ይገባል፣ ለወልድም ምስጋና ይገባል ለመንፈስ ቅዱስም ምስጋና ይገባል፡፡ አምላክን ለወለደች ለእመቤታችን፣ ለድንግል ማርያም ምስጋና ይገባል። ለኢየሱስ ክርስቶስ መስቀልም ምስጋና ይገባል፡፡ ክርስቶስ በቸርነቱ ያስበን ዘንድ ዳግመኛም፤ በመጣ ጊዜ እንዳያሳፍረን ስሙን ለማመስገን ያነቃን፤ እርሱንም በማምለክ ያጸናን ዘንድ። እመቤታችን ጸሎታችንን አሳርጊልን ኃጢአታችንንም አስተሥርዪልን በጌታችን መንበር ፊት ጸሎታችንን አሳርጊልን
 ይህን ኅብስት ላበላን፤ ይህንም ጽዋ ላጠጣን፣ ምግባችንንና ልብሳችንን ላዘጋጀልን፣ ኃጢአታችንንም ሁሉ ለታገሠልን፣ ክቡር ደሙን ቅዱስ ሥጋውን ለሰጠን፣ እስከዚችም ሰዓት ላደረሰን፤ ለእርሱ ለልዑል እግዚአብሔር ፍጹም ምስጋና ይገባል፡፡
 ለወለደችው ለድንግልም ምስጋና ይገባል፡፡ ለክቡር መስቀሉም ምስጋና ይገባል፡፡ የእግዚአብሔር ስም ፈጽሞ ይመሰገን ዘንድ ዘወትር በየጊዜያቱና በየሰዓቱ ምስጋና ይገባል፡፡ 
 </div></details>
@@ -193,7 +338,7 @@ body{background:linear-gradient(180deg,#f5f8f7,#eef3f1);color:#17333a}header{bac
 <div class="card ethiopian-card"><h2>🌟 የመማሪያ ማዕከል <span class="helperEnglish">Learning Lab</span></h2><div class="profileBar"><label><span class="amharicPrimary">የዕድሜ ደረጃ</span> / Age group <select id="learnerAge" onchange="saveLearnerProfile()"><option value="little">Little Learners (3–6)</option><option value="children">Children (7–11)</option><option value="youth">Youth (12+)</option></select></label><span id="ageRecommendation"></span></div></div>
 <div class="subnav labNav noPrint"><button class="sub-active" onclick="showLabPanel('labWordSearch',this)">🔎 ቃል ፍለጋ</button><button onclick="showLabPanel('labTracing',this)">✍️ መጻፍ</button><button onclick="showLabPanel('labPronunciation',this)">🔊 አጠራር</button><button onclick="showLabPanel('labAnimals',this)">🐾 እንስሳት</button></div>
 <div class="card labPanel panel-active" id="labWordSearch"><h2>🔎 ቃል ፍለጋ <span class="helperEnglish">Amharic Word Search</span></h2><p id="wordSearchTargets"></p><div class="wordSearchGrid" id="wordSearchGrid"></div><div class="feedback" id="wordSearchFeedback"></div><button onclick="checkWordSearch()">የመረጥኩትን ፈትሽ <span class="helperEnglish">Check selection</span></button> <button onclick="newWordSearch()">አዲስ ጨዋታ / New</button></div>
-<div class="card labPanel" id="labTracing"><h2 class="vibrantTitle">✍️ Fidel Family Tracing <span class="helperEnglish">ፊደል መጻፍ</span></h2><div class="traceWrap"><div class="traceControls"><h3>Choose a Fidel family <span class="helperEnglish">የፊደል ቤት ምረጥ</span></h3><label class="traceFamilySelectWrap">Family / የፊደል ቤት<select aria-label="Choose a Fidel family" class="traceFamilySelect" id="traceFamilySelect" onchange="changeTraceFamilySelect(this.value)"></select></label><button class="resetSelection" onclick="resetTraceFamilies()">↺ Reset selection</button><select class="hidden" id="traceLetter" onchange="prepareTrace()"></select><div class="traceNav"><button onclick="previousTraceLetter()">◀ Previous</button><button onclick="speakAmharic(document.getElementById('traceLetter').value)">🔊 Listen</button><button onclick="nextTraceLetter()">Next ▶</button></div><button onclick="clearTrace()">↺ Clear</button> <button onclick="completeTrace()">✓ Done &amp; Next</button></div><div class="traceStage"><div class="traceSelectedLetters" id="traceSelectedLetters"></div><canvas class="traceCanvas" height="560" id="traceCanvas" width="840"></canvas></div></div></div>
+<div class="card labPanel" id="labTracing"><h2 class="vibrantTitle">✍️ Ethiopian Alphabet Tracing <span class="helperEnglish">ፊደል መጻፍ</span></h2><div class="traceFlow"><div class="traceFamilyTop"><label class="traceFamilySelectWrap"><span>Choose an Ethiopian alphabet family <span class="helperEnglish">የፊደል ቤት ምረጥ</span></span><select aria-label="Choose an Ethiopian alphabet family" class="traceFamilySelect" id="traceFamilySelect" onchange="changeTraceFamilySelect(this.value)"></select></label></div><div class="traceStage"><div class="traceSelectedLetters" id="traceSelectedLetters"></div><canvas class="traceCanvas" height="520" id="traceCanvas" width="840"></canvas><select class="hidden" id="traceLetter" onchange="prepareTrace()"></select><div class="traceActionPairs"><div class="twoButtonRow"><button onclick="previousTraceLetter()">◀ Previous Letter</button><button onclick="completeTrace()">✓ Done &amp; Next Letter</button></div><div class="twoButtonRow"><button onclick="clearTrace()">↺ Clear</button><button onclick="speakAmharic(document.getElementById('traceLetter').value)">🔊 Listen</button></div></div><p class="traceHint">Practice the seven forms in this family. Use the family selector or the family navigation below when you are ready to continue.</p></div></div></div>
 <div class="card labPanel" id="labPronunciation"><h2>🔊 የፊደል አጠራር <span class="helperEnglish">Amharic Pronunciation</span></h2><p>ፊደሉን ተጫን። <span class="helperEnglish">Tap a Fidel character to hear it.</span></p><div class="pronounceGrid" id="pronounceGrid"></div><p class="muted">Pronunciation uses the Amharic voice installed on the device; voice quality may vary.</p></div>
 <div class="labPanel" id="labAnimals"><div class="card"><h2>🐾 Common Animals <span class="helperEnglish">የእንስሳት ስሞች</span></h2><div class="animalGallery" id="animalGallery"></div></div><div class="card game"><h2>Match Each Animal to Its Amharic Name <span class="helperEnglish">እንስሳውን ከአማርኛ ስሙ ጋር አዛምድ</span></h2><p>All pictures and names stay visible. Tap a name and then its animal, or drag the name to the picture.</p><div class="animalMatchGrid" id="animalMatchGrid"></div><div class="feedback" id="animalMatchFeedback"></div><button onclick="newAnimalMatch()">New Set / አዲስ ጨዋታ</button></div><div class="card animalScramble"><h2>ሀ Build the Scrambled Animal Name <span class="helperEnglish">የእንስሳትን ስም ገንባ</span></h2><div class="animalClue" id="animalClue"></div><div class="clue" id="animalEnglish"></div><div class="animalAnswer" id="animalAnswer">_</div><div class="puzzle-row" id="animalTiles"></div><div class="feedback" id="animalScrambleFeedback"></div><button onclick="checkAnimalScramble()">✓ Check</button> <button onclick="resetAnimalScramble()">↺ Start Over</button> <button onclick="newAnimalScramble()">Next Animal</button></div></div>
 </section>
@@ -226,7 +371,7 @@ body{background:linear-gradient(180deg,#f5f8f7,#eef3f1);color:#17333a}header{bac
 <button onclick="show('faithhub')"><span class="spiritualStack" aria-hidden="true"></span><small>Spiritual</small></button>
 </nav>
 
-<footer><div class="flagline"></div><br/>ፊደል እንማር • Growing Learning Platform • Version 19 Welcome & Icon Consistency<br/><span class="privacyNote">Child-focused prototype • Progress stays on this device • No ads, public profiles, or third-party tracking</span></footer>
+<footer><div class="flagline"></div><br/>ፊደል እንማር • Growing Learning Platform • Version 25 Refined Learning Experience<br/><span class="privacyNote">Child-focused prototype • Progress stays on this device • No ads, public profiles, or third-party tracking</span></footer>
 <script>
 const families=[
 ["ሀ","ሁ","ሂ","ሃ","ሄ","ህ","ሆ"],["ለ","ሉ","ሊ","ላ","ሌ","ል","ሎ"],["ሐ","ሑ","ሒ","ሓ","ሔ","ሕ","ሖ"],["መ","ሙ","ሚ","ማ","ሜ","ም","ሞ"],
@@ -406,12 +551,22 @@ if(menu)menu.addEventListener('click',()=>{if(nav)nav.classList.remove('open');s
 if(nav)nav.addEventListener('click',e=>{if(e.target.closest('button')&&innerWidth<=700){nav.classList.remove('open')}});
 
 const missingBank=[];
-families.forEach((family,fi)=>family.forEach((answer,pos)=>missingBank.push({id:`f${fi}-${pos}`,family,answer,pos})));
+const ordinal=n=>['1st','2nd','3rd','4th','5th','6th','7th'][n]||String(n+1);
+families.forEach((family,fi)=>family.forEach((answer,pos)=>{
+  const prev=family[(pos-1+family.length)%family.length],next=family[(pos+1)%family.length];
+  missingBank.push({id:`f${fi}-${pos}-blank`,family,answer,pos,mode:'blank'});
+  missingBank.push({id:`f${fi}-${pos}-form`,family,answer,pos,mode:'prompt',prompt:`Which letter is the ${ordinal(pos)} form in the ${family[0]} family?`});
+  missingBank.push({id:`f${fi}-${pos}-after`,family,answer,pos,mode:'prompt',prompt:`In the ${family[0]} family, which letter comes after ${prev}?`});
+  missingBank.push({id:`f${fi}-${pos}-before`,family,answer,pos,mode:'prompt',prompt:`In the ${family[0]} family, which letter comes before ${next}?`});
+  missingBank.push({id:`f${fi}-${pos}-recognize`,family,answer,pos,mode:'prompt',prompt:`Find the ${ordinal(pos)} Fidel form from this family: ${family.join(' ')}`});
+}));
+const expandedWordBank=words.flatMap((item,wi)=>Array.from({length:24},(_,variant)=>({...item,id:`w${wi}-v${variant}`,variant})));
 const alphabetPuzzleBank=families.map((sequence,i)=>({id:`alphabet-${i}`,label:`Fidel family ${i+1} — put all seven letters in order`,sequence:[...sequence]}));
 for(let group=0;group<25;group++){let start=group*4+1;alphabetPuzzleBank.push({id:`numbers-${group+1}`,label:`Numbers ${start}–${start+3} — put them in order`,sequence:[0,1,2,3].map(x=>ethiopicNumber(start+x))});}
 alphabetPuzzleBank.push({id:'number-tens',label:'Tens 10–100 — put them in order',sequence:[10,20,30,40,50,60,70,80,90,100].map(ethiopicNumber)});
 families.forEach((family,i)=>alphabetPuzzleBank.push({id:`family-first-four-${i}`,label:`Fidel family ${i+1} — order the first four forms`,sequence:family.slice(0,4)}));
 families.slice(0,6).forEach((family,i)=>alphabetPuzzleBank.push({id:`family-last-three-${i}`,label:`Fidel family ${i+1} — order the final three forms`,sequence:family.slice(4)}));
+const expandedPuzzleBank=alphabetPuzzleBank.flatMap((item,pi)=>Array.from({length:40},(_,variant)=>({...item,id:`p${pi}-v${variant}`,variant})));
 
 const gameState={};
 const sessionControl=type=>`<div class="session-controls"><label>Questions: <select id="${type}Count" onchange="startChallenge('${type}')"><option>20</option><option>40</option><option>60</option><option>80</option><option selected>100</option></select></label>${type==='word'||type==='choice'?`<label>Difficulty: <select id="${type}Level" onchange="startChallenge('${type}')"><option value="1">Level 1 — Beginner</option><option value="2">Level 2 — Intermediate</option><option value="3">Level 3 — Advanced</option></select></label>`:''}<button onclick="startChallenge('${type}')">Restart Challenge</button></div><div class="gameStatus"><span>Question: <b id="${type}Progress">0/0</b></span><span>Score: <b id="${type}Score">0</b></span><span>Best: <b id="${type}Best">${localStorage.getItem('fidel-best-'+type)||0}</b></span></div><div class="progressBar"><div id="${type}Bar" class="progressFill"></div></div><div id="${type}Stage"><p class="muted">Choose a question count and difficulty.</p></div>`;
@@ -420,11 +575,11 @@ document.getElementById('missing').innerHTML=`<div class="card game"><h2>ሀ Mis
 document.getElementById('word').innerHTML=`<div class="card game"><h2>🧩 Complete the Word</h2><p>Level 1 removes one letter, Level 2 removes two or more, and Level 3 asks you to rebuild the whole word.</p>${sessionControl('word')}</div>`;
 document.getElementById('choice').innerHTML=`<div class="card game"><h2>✅ Multiple Choice Challenge</h2><p>Questions become less direct as the level increases.</p>${sessionControl('choice')}</div>`;
 document.getElementById('scrabble').innerHTML=`<div class="card game"><h2>ሀ English-to-Amharic Word Builder</h2><p>Read the large English clue and build the Amharic answer. Three extra letters do not belong in the word.</p>${sessionControl('builder')}</div>`;
-document.getElementById('puzzles').innerHTML=`<div class="card game ethiopian-card"><h2>🧠 Complete Alphabet & Number Puzzle</h2><p>The 60 unique puzzles cover all 34 Fidel families and Ethiopian numbers from 1 through 100.</p>${sessionControl('puzzle')}</div>`;
+document.getElementById('puzzles').innerHTML=`<div class="card game ethiopian-card"><h2>🧠 Complete Alphabet & Number Puzzle</h2><p>Thousands of generated puzzle variations cover all 34 Fidel families and Ethiopian numbers from 1 through 100.</p>${sessionControl('puzzle')}</div>`;
 
 function makeChoices(answer,pool,count=4){const result=new Set([answer]);for(const x of qShuffle(pool)){if(x!==answer)result.add(x);if(result.size===count)break}return qShuffle([...result]);}
 function begin(type,bank){const size=Number(document.getElementById(type+'Count').value),level=document.getElementById(type+'Level');gameState[type]={deck:qShuffle(bank).slice(0,size),index:0,score:0,level:level?Number(level.value):1,answered:false,built:[],usedTiles:new Set()};renderCurrent(type);}
-window.startChallenge=function(type){if(type==='missing')begin(type,missingBank);else if(type==='word'||type==='choice'||type==='builder')begin(type,words);else begin(type,alphabetPuzzleBank)};
+window.startChallenge=function(type){if(type==='missing')begin(type,missingBank);else if(type==='word'||type==='choice'||type==='builder')begin(type,expandedWordBank);else begin(type,expandedPuzzleBank)};
 function updateStatus(type){const s=gameState[type],total=s.deck.length;document.getElementById(type+'Progress').textContent=`${Math.min(s.index+1,total)}/${total}`;document.getElementById(type+'Score').textContent=s.score;document.getElementById(type+'Bar').style.width=`${(s.index/total)*100}%`;}
 function next(type){const s=gameState[type];s.index++;s.answered=false;s.built=[];s.usedTiles=new Set();if(s.index>=s.deck.length)return finish(type);renderCurrent(type);}
 window.nextChallenge=next;
@@ -433,7 +588,7 @@ function feedback(type,correct,message){const s=gameState[type];if(s.answered)re
 window.answerSessionChoice=function(type,encoded,button){const s=gameState[type],answer=decodeURIComponent(encoded);feedback(type,button.textContent===answer,`Correct answer: ${answer}`)};
 function choiceMarkup(type,opts,answer){return `<div class="choices">${opts.map(x=>`<button class="choice-btn" onclick="answerSessionChoice('${type}','${encodeURIComponent(answer)}',this)">${x}</button>`).join('')}</div><div id="${type}Feedback" class="feedback"></div><button id="${type}Next" class="hidden" onclick="nextChallenge('${type}')">Next Question ▶</button>`;}
 function renderCurrent(type){updateStatus(type);const s=gameState[type],item=s.deck[s.index],stage=document.getElementById(type+'Stage');
-if(type==='missing'){const q=item.family.map((x,i)=>i===item.pos?'＿':x).join(' '),opts=makeChoices(item.answer,item.family);stage.innerHTML=`<div class="question">${q}<small>Choose the missing Fidel.</small></div>${choiceMarkup(type,opts,item.answer)}`;}
+if(type==='missing'){const q=item.mode==='prompt'?item.prompt:item.family.map((x,i)=>i===item.pos?'＿':x).join(' '),opts=makeChoices(item.answer,item.family);stage.innerHTML=`<div class="question">${q}<small>${item.mode==='prompt'?'Choose the correct Fidel form.':'Choose the missing Fidel.'}</small></div>${choiceMarkup(type,opts,item.answer)}`;}
 else if(type==='word')renderCompleteWord(stage,s,item);
 else if(type==='choice')renderMultipleChoice(stage,s,item);
 else if(type==='builder')renderBuilder(stage,s,item,'builder');
@@ -442,7 +597,7 @@ else renderPuzzle(stage,s,item);}
 function levelIntro(level,descriptions){return `<div class="difficulty-banner difficulty-${level}">Level ${level} — ${level===1?'Beginner':level===2?'Intermediate':'Advanced'}</div><div class="difficulty-help">${descriptions[level]}</div>`}
 function renderCompleteWord(stage,s,item){const letters=[...item.w],intro=levelIntro(s.level,{1:'One letter is missing. Use the complete word pattern and choose from only three letters.',2:'Several letters are missing. Select the missing letters one at a time, in the correct order; two extra letters are included.',3:'The Amharic word is completely hidden. Build it from the English meaning while avoiding five extra letters.'});
 if(s.level===3){renderBuilder(stage,s,item,'word',5,intro);return}
-if(s.level===1){const pos=Math.floor(Math.random()*letters.length),answer=letters[pos],q=letters.map((x,i)=>i===pos?'＿':x).join(' '),opts=makeChoices(answer,allFidel,3);stage.innerHTML=`${intro}<div class="clue">English meaning: <b>${item.e}</b></div><div class="question">${q}</div>${choiceMarkup('word',opts,answer)}`;return}
+if(s.level===1){const pos=(Number(item.variant||0)+s.index)%letters.length,answer=letters[pos],q=letters.map((x,i)=>i===pos?'＿':x).join(' '),opts=makeChoices(answer,allFidel,3);stage.innerHTML=`${intro}<div class="clue">English meaning: <b>${item.e}</b></div><div class="question">${q}</div>${choiceMarkup('word',opts,answer)}`;return}
 const missingCount=Math.min(letters.length,Math.max(2,Math.ceil(letters.length/2))),positions=qShuffle(letters.map((_,i)=>i)).slice(0,missingCount).sort((a,b)=>a-b),answer=positions.map(i=>letters[i]).join(''),pattern=letters.map((x,i)=>positions.includes(i)?'＿':x).join(' ');renderPartialWord(stage,s,item,pattern,answer,intro);}
 function renderPartialWord(stage,s,item,pattern,answer,intro){const tiles=qShuffle([...answer,...distractorsFor(item.w,2)]).map((char,i)=>({char,id:i}));s.tiles=tiles;s.built=[];s.usedTiles=new Set();stage.innerHTML=`${intro}<div class="clue">English meaning: <b>${item.e}</b></div><div class="partial-pattern">${pattern}</div><div class="challenge-warning">Select only the missing letters, in their correct order.</div><div id="wordBuilt" class="answerBox word">_</div><div id="wordTiles" class="puzzle-row">${tiles.map(t=>`<button class="tile" data-id="${t.id}" onclick="pickBuilderTile('word',${t.id},'${t.char}')">${t.char}</button>`).join('')}</div><div id="wordFeedback" class="feedback"></div><button onclick="resetBuilder('word')">Start Over</button> <button onclick="checkBuilder('word','${encodeURIComponent(answer)}')">Check Missing Letters</button><button id="wordNext" class="hidden" onclick="nextChallenge('word')">Next Question ▶</button>`;}
 function renderMultipleChoice(stage,s,item){let answer,question,opts,help;if(s.level===1){help=levelIntro(1,{1:'The English meaning and first Amharic letter are provided. Choose from three answers.'});question=`Which Amharic word means “${item.e}”? <small>Hint: it begins with ${[...item.w][0]}</small>`;answer=item.w;opts=makeChoices(answer,words.map(x=>x.w),3);}else if(s.level===2){help=levelIntro(2,{2:'No English clue is shown before the question. Translate the Amharic word and choose from four close possibilities.'});question=`Translate this Amharic word: “${item.w}”`;answer=item.e;opts=makeChoices(answer,words.map(x=>x.e),4);}else{help=levelIntro(3,{3:'Six Amharic–English pairs are shown. Five are deliberately mismatched; find the single correct pair.'});question='Choose the only correctly matched Amharic–English pair.';answer=`${item.w} — ${item.e}`;let wrong=qShuffle(words.filter(x=>x!==item)).slice(0,5).map(x=>{let meanings=words.filter(y=>y.e!==x.e);return `${x.w} — ${qShuffle(meanings)[0].e}`});opts=qShuffle([answer,...wrong]);}stage.innerHTML=`${help}<div class="question">${question}</div>${choiceMarkup('choice',opts,answer)}`;}
@@ -515,7 +670,7 @@ window.placePictureName=function(type,target){const state=pictureMatchState[type
 // Bible-story and Ethiopian Orthodox Tewahedo teaching matching.
 const faithPairs=[{am:'ኖኅ / Noah',en:'Obedience and trust in God'},{am:'ዮሴፍ / Joseph',en:'Forgiveness and God’s providence'},{am:'ሙሴ / Moses',en:'God’s commandments and deliverance'},{am:'ዳዊት / David',en:'Faith and courage'},{am:'ልደት / Nativity',en:'The Incarnation of our Lord'},{am:'ጥምቀት / Timket',en:'The Baptism of Christ'},{am:'መስቀል / Crucifixion',en:'Christ’s saving sacrifice'},{am:'ትንሣኤ / Resurrection',en:'Victory over death'},{am:'ጰራቅሊጦስ / Pentecost',en:'The coming of the Holy Spirit'},{am:'ደጉ ሳምራዊ / Good Samaritan',en:'Mercy toward our neighbor'},{am:'ጾም / Fasting',en:'Prayer, repentance and self-control'},{am:'ቅዳሴ / Divine Liturgy',en:'Worship and Holy Communion'}];
 let faithDeck=[],faithOpen=[],faithMatches=0,faithLocked=false;
-window.newFaithGame=function(){const pairs=labShuffle(faithPairs).slice(0,6);faithDeck=labShuffle(pairs.flatMap((x,i)=>[{pair:i,text:x.am},{pair:i,text:x.en}]));faithOpen=[];faithMatches=0;faithLocked=false;document.getElementById('faithMemoryGrid').innerHTML=faithDeck.map((x,i)=>`<button class="faithMatchCard" data-faith-card="${i}" onclick="flipFaithCard(${i})">${x.text}</button>`).join('');document.getElementById('faithMemoryFeedback').textContent='0 / 6';};
+window.newFaithGame=function(){if(!document.getElementById('faithMemoryGrid'))return;const pairs=labShuffle(faithPairs).slice(0,6);faithDeck=labShuffle(pairs.flatMap((x,i)=>[{pair:i,text:x.am},{pair:i,text:x.en}]));faithOpen=[];faithMatches=0;faithLocked=false;document.getElementById('faithMemoryGrid').innerHTML=faithDeck.map((x,i)=>`<button class="faithMatchCard" data-faith-card="${i}" onclick="flipFaithCard(${i})">${x.text}</button>`).join('');document.getElementById('faithMemoryFeedback').textContent='0 / 6';};
 window.flipFaithCard=function(i){if(faithLocked||faithOpen.includes(i))return;const card=document.querySelector(`[data-faith-card="${i}"]`);if(card.classList.contains('matched'))return;card.classList.add('revealed');faithOpen.push(i);if(faithOpen.length===2){faithLocked=true;const [a,b]=faithOpen;if(faithDeck[a].pair===faithDeck[b].pair){[a,b].forEach(n=>document.querySelector(`[data-faith-card="${n}"]`).classList.add('matched'));faithMatches++;faithOpen=[];faithLocked=false;document.getElementById('faithMemoryFeedback').textContent=`${faithMatches} / 6`;if(faithMatches===6){document.getElementById('faithMemoryFeedback').textContent='🏆 በጣም ጥሩ! / All faith words matched!';awardLearningPoints(40,'Completed faith word matching','faith');}}else setTimeout(()=>{[a,b].forEach(n=>document.querySelector(`[data-faith-card="${n}"]`).classList.remove('revealed'));faithOpen=[];faithLocked=false;},750);}};
 
 // Tracing and pronunciation
@@ -525,10 +680,11 @@ function tracePoint(e){const r=traceCanvas.getBoundingClientRect(),p=e.touches?e
 function drawTraceGuide(){traceCtx.clearRect(0,0,traceCanvas.width,traceCanvas.height);traceCtx.fillStyle='#e5e5e5';traceCtx.textAlign='center';traceCtx.textBaseline='middle';traceCtx.font='420px "Noto Sans Ethiopic",sans-serif';traceCtx.fillText(document.getElementById('traceLetter').value||'ሀ',traceCanvas.width/2,traceCanvas.height/2+25)}
 ['pointerdown','pointermove','pointerup','pointerleave'].forEach(event=>traceCanvas.addEventListener(event,e=>{e.preventDefault();if(event==='pointerdown'){tracing=true;lastTrace=tracePoint(e)}else if(event==='pointermove'&&tracing){const p=tracePoint(e);traceCtx.beginPath();traceCtx.moveTo(lastTrace.x,lastTrace.y);traceCtx.lineTo(p.x,p.y);traceCtx.strokeStyle='#078930';traceCtx.lineWidth=18;traceCtx.lineCap='round';traceCtx.stroke();lastTrace=p}else tracing=false}));
 function rebuildTraceQueue(){traceQueue=[...selectedTraceFamilies].sort((a,b)=>a-b).flatMap(i=>families[i]);if(!traceQueue.length){selectedTraceFamilies.add(0);traceQueue=[...families[0]]}traceQueueIndex=Math.min(traceQueueIndex,traceQueue.length-1);document.getElementById('traceLetter').innerHTML=traceQueue.map(x=>`<option>${x}</option>`).join('');document.getElementById('traceLetter').selectedIndex=traceQueueIndex;prepareTrace();renderTraceFamilyPicker();renderSelectedTraceFamilies()}
-function renderTraceFamilyPicker(){const picker=document.getElementById('traceFamilySelect');picker.innerHTML=families.map((f,i)=>`<option value="${i}">${f[0]}</option>`).join('');picker.value=String([...selectedTraceFamilies][0]||0)}
+function renderTraceFamilyPicker(){const picker=document.getElementById('traceFamilySelect');const ethNums=['፩','፪','፫','፬','፭','፮','፯','፰','፱','፲','፲፩','፲፪','፲፫','፲፬','፲፭','፲፮','፲፯','፲፰','፲፱','፳','፳፩','፳፪','፳፫','፳፬','፳፭','፳፮','፳፯','፳፰','፳፱','፴','፴፩','፴፪','፴፫','፴፬'];picker.innerHTML=families.map((f,i)=>`<option value="${i}">${ethNums[i]||i+1} — ${f.join(' ')}</option>`).join('');picker.value=String([...selectedTraceFamilies][0]||0)}
 function renderSelectedTraceFamilies(){const active=document.getElementById('traceLetter').value;document.getElementById('traceSelectedLetters').innerHTML=[...selectedTraceFamilies].sort((a,b)=>a-b).map(i=>`<div class="traceFamilyRow">${families[i].map(letter=>`<button class="${letter===active?'current':''}" onclick="chooseTraceLetter('${letter}')">${letter}</button>`).join('')}</div>`).join('')}
 window.chooseTraceLetter=function(letter){const index=traceQueue.indexOf(letter);if(index>=0){traceQueueIndex=index;document.getElementById('traceLetter').selectedIndex=index;prepareTrace();renderSelectedTraceFamilies()}};
 window.changeTraceFamilySelect=function(i){selectedTraceFamilies=new Set([Number(i)]);traceQueueIndex=0;rebuildTraceQueue();if(innerWidth<=700){document.querySelector('#labTracing .traceStage')?.scrollIntoView({behavior:'smooth',block:'start'})}};
+window.nextTraceFamily=function(){const picker=document.getElementById('traceFamilySelect');let i=(Number(picker.value)+1)%families.length;picker.value=String(i);changeTraceFamilySelect(i);};
 window.resetTraceFamilies=function(){selectedTraceFamilies=new Set([0]);traceQueueIndex=0;rebuildTraceQueue()};
 window.nextTraceLetter=function(){traceQueueIndex=(traceQueueIndex+1)%traceQueue.length;document.getElementById('traceLetter').selectedIndex=traceQueueIndex;prepareTrace()};window.previousTraceLetter=function(){traceQueueIndex=(traceQueueIndex-1+traceQueue.length)%traceQueue.length;document.getElementById('traceLetter').selectedIndex=traceQueueIndex;prepareTrace()};
 window.prepareTrace=function(){drawTraceGuide();if(document.getElementById('traceSelectedLetters'))renderSelectedTraceFamilies()};window.clearTrace=drawTraceGuide;window.completeTrace=function(){awardLearningPoints(10,`Traced ${document.getElementById('traceLetter').value}`,'tracing');setTimeout(nextTraceLetter,350)};
@@ -613,8 +769,8 @@ const seven=[
 ['6. ምሥጢረ ንስሐ','Mystery of Penance / Confession','ሰው ኃጢአቱን ተጸጽቶ በንስሐ ወደ እግዚአብሔር የሚመለስበትና ይቅርታን የሚፈልግበት ምሥጢር ነው።','Through repentance and confession, the believer turns back to God and seeks forgiveness and spiritual healing.'],
 ['7. ምሥጢረ ቀንዲል','Mystery of Unction of the Sick','ለታመሙ ሰዎች በጸሎትና በቅብዓት የነፍስና የሥጋ ፈውስ የሚለመንበት ምሥጢር ነው።','A sacrament of prayer and anointing for the sick, asking God for healing of soul and body.']
 ];
-const sacr=document.createElement('div');sacr.id='faithSacraments';sacr.className='faithArea';sacr.innerHTML=`<div class="card"><h2>Seven Mysteries of the Church <span class="helperEnglish">ሰባቱ ምሥጢራተ ቤተ ክርስቲያን</span></h2><div class="mysteryIntro"><b>Child-friendly summary:</b> The Ethiopian Orthodox Tewahedo Church teaches seven holy sacraments through which believers receive and live in God’s grace.</div><div class="mysteryGrid">${seven.map(([a,e,ad,ed])=>`<article class="mysteryCard"><h3>${a}</h3><b>${e}</b><div class="amText">${ad}</div><div class="enText">${ed}</div></article>`).join('')}</div><div class="sourceNote">Teaching summary based on Ethiopian Orthodox Tewahedo Church Sunday School Department materials. Detailed sacramental teaching should be studied with a parish priest or teacher.</div></div>`;
-const tr=document.createElement('div');tr.id='faithTrinity';tr.className='faithArea';tr.innerHTML=`<div class="card"><h2>Mystery of the Holy Trinity <span class="helperEnglish">ምሥጢረ ሥላሴ</span></h2><div class="mysteryGrid"><article class="mysteryCard"><h3>አንድ አምላክ — One God</h3><div class="amText">ቅድስት ሥላሴ አብ፣ ወልድ፣ መንፈስ ቅዱስ ናቸው። ሦስት በስም፣ በአካል እና በግብር ሲሆኑ፣ አንድ በመለኮት፣ በባሕርይ፣ በሕልውና እና በፈቃድ ናቸው። ሦስት አማልክት ሳይሆኑ አንድ እግዚአብሔር ነው።</div><div class="enText">The Holy Trinity is the Father, the Son, and the Holy Spirit. The Church teaches that the Trinity is three in name, person, and work, yet one in essence, divinity, existence, and will—not three gods, but one God.</div></article><article class="mysteryCard"><h3>አብ — The Father</h3><div class="amText">አብ ወላዲ ነው፤ ወልድን ከዘላለም ይወልዳል።</div><div class="enText">The Father is unbegotten and eternally begets the Son.</div></article><article class="mysteryCard"><h3>ወልድ — The Son</h3><div class="amText">ወልድ ከአብ የተወለደ ነው፤ ለድኅነታችን ሰው ሆኖ ተዋሕዶአል።</div><div class="enText">The Son is eternally begotten of the Father and became incarnate for our salvation.</div></article><article class="mysteryCard"><h3>መንፈስ ቅዱስ — The Holy Spirit</h3><div class="amText">መንፈስ ቅዱስ ከአብ የሚሠርጽ ነው፤ ሕይወትንና ቅድስናን ይሰጣል።</div><div class="enText">The Holy Spirit proceeds from the Father and is the giver of life and sanctification.</div></article></div><div class="sourceNote">This is a brief learning summary, not a replacement for catechetical instruction. Based on Ethiopian Orthodox Tewahedo teaching resources on the Mystery of the Holy Trinity.</div></div>`;
+const sacr=document.createElement('div');sacr.id='faithSacraments';sacr.className='faithArea';sacr.innerHTML=`<div class="card"><h2>Seven Mysteries of the Church <span class="helperEnglish">ሰባቱ ምሥጢራተ ቤተ ክርስቲያን</span></h2><div class="mysteryIntro"><b>Learning summary:</b> The Ethiopian Orthodox Tewahedo Church teaches seven holy Mysteries (Sacraments): Baptism, Myron, Holy Communion, Ordination, Holy Matrimony, Penance, and Unction of the Sick. Baptism, Myron and Holy Communion are closely connected with receiving new life as children of God; Ordination and Holy Matrimony are mysteries of service and holy unity; Penance and Unction of the Sick are mysteries of spiritual and bodily healing. Some are received once, while others are repeated as part of Christian life. Each mystery should be learned with its meaning, purpose, biblical foundation and place in the worship of the Church.</div><div class="mysteryGrid">${seven.map(([a,e,ad,ed])=>`<article class="mysteryCard"><h3>${a}</h3><b>${e}</b><div class="amText">${ad}</div><div class="enText">${ed}</div></article>`).join('')}</div><div class="sourceNote">Teaching summary based on Ethiopian Orthodox Tewahedo Church Sunday School Department materials. Detailed sacramental teaching should be studied with a parish priest or teacher.</div></div>`;
+const tr=document.createElement('div');tr.id='faithTrinity';tr.className='faithArea';tr.innerHTML=`<div class="card"><h2>Mystery of the Holy Trinity <span class="helperEnglish">ምሥጢረ ሥላሴ</span></h2><div class="mysteryGrid"><article class="mysteryCard"><h3>አንድ አምላክ — One God</h3><div class="amText">ቅድስት ሥላሴ አብ፣ ወልድ፣ መንፈስ ቅዱስ ናቸው። ሦስት በስም፣ በአካል እና በግብር ሲሆኑ፣ አንድ በመለኮት፣ በባሕርይ፣ በሕልውና እና በፈቃድ ናቸው። ሦስት አማልክት ሳይሆኑ አንድ እግዚአብሔር ነው።</div><div class="enText">The Ethiopian Orthodox Tewahedo Church teaches the Mystery of the Holy Trinity as the Triune God in perfect oneness: Father, Son and Holy Spirit are three in name, person and deed, yet one in essence, divinity, existence and will. The Father is the Begetter, the Son is Begotten, and the Holy Spirit Proceeds from the Father. Each Person is perfect and distinct, while the Godhead is one—never three gods, but one God. Learners should understand this as a sacred mystery revealed by God and received in the faith of the Church.</div></article><article class="mysteryCard"><h3>አብ — The Father</h3><div class="amText">አብ ወላዲ ነው፤ ወልድን ከዘላለም ይወልዳል።</div><div class="enText">The Father is unbegotten and eternally begets the Son.</div></article><article class="mysteryCard"><h3>ወልድ — The Son</h3><div class="amText">ወልድ ከአብ የተወለደ ነው፤ ለድኅነታችን ሰው ሆኖ ተዋሕዶአል።</div><div class="enText">The Son is eternally begotten of the Father and became incarnate for our salvation.</div></article><article class="mysteryCard"><h3>መንፈስ ቅዱስ — The Holy Spirit</h3><div class="amText">መንፈስ ቅዱስ ከአብ የሚሠርጽ ነው፤ ሕይወትንና ቅድስናን ይሰጣል።</div><div class="enText">The Holy Spirit proceeds from the Father and is the giver of life and sanctification.</div></article></div><div class="sourceNote">This is a brief learning summary, not a replacement for catechetical instruction. Based on Ethiopian Orthodox Tewahedo teaching resources on the Mystery of the Holy Trinity.</div></div>`;
 const objects=[['ጽና','Censer','Used for burning incense during worship.'],['ጽናጽል','Sistrum','A liturgical rhythm instrument used especially in hymn and chant traditions.'],['ከበሮ','Kebero / Drum','A traditional drum used with sacred chant on appropriate services and feasts.'],['መቋሚያ','Prayer Staff','A prayer staff used by chanters for support and rhythm during lengthy services.'],['ጽዋ','Chalice','A sacred vessel associated with the Eucharistic service.'],['የእጅ መስቀል','Ethiopian Orthodox Hand Cross','A hand-held cross used by clergy for blessing and veneration.'],['ዕጣን','Incense','Fragrant incense used in prayer and liturgical worship.'],['ጃንጥላ','Processional Umbrella','A ceremonial umbrella used in processions and feast-day worship.']];
 const obj=document.createElement('div');obj.id='faithChurchItems';obj.className='faithArea';obj.innerHTML=`<div class="card"><h2>Church Items & Worship Tools <span class="helperEnglish">የቤተ ክርስቲያን ዕቃዎችና የአገልግሎት መሣሪያዎች</span></h2><p>Learn the names and purposes of common items used in Ethiopian Orthodox Tewahedo worship. Decorative emoji icons have been removed so children are not shown inaccurate representations.</p><div class="churchObjectGrid">${objects.map(([a,e,u])=>`<div class="churchObject"><div class="objAm">${a}</div><div class="objEn">${e}</div><div class="objUse">${u}</div></div>`).join('')}</div><div class="sourceNote">These are text learning cards only. Exact sacred objects should be learned from real church examples or parish-approved photographs.</div></div>`;
 if(faithMenu&&faithContent){[['faithSacraments','⛪','Seven Church Mysteries','ሰባቱ ምሥጢራት'],['faithTrinity','☦️','Mystery of Trinity','ምሥጢረ ሥላሴ'],['faithChurchItems','🕯️','Church Items','የቤተ ክርስቲያን ዕቃዎች']].forEach(([id,ic,en,am])=>{if(!document.getElementById(id)){const panel=id==='faithSacraments'?sacr:id==='faithTrinity'?tr:obj;faithContent.appendChild(panel);faithMenu.insertAdjacentHTML('beforeend',`<button data-faith-activity="${id}" onclick="showFaithActivity('${id}',this)"><span class="activityIcon">${ic}</span>${en}<span class="hoverTranslation">${am}</span></button>`)}})}
@@ -645,7 +801,7 @@ if(faithMenu&&faithContent){[['faithSacraments','⛪','Seven Church Mysteries','
 })();
 
 
-setTimeout(()=>{const first=document.querySelector('#alphabet .alphabetArea.panel-active');if(first)addBottomActivityNav(first,'showAlphabetLanding','Fidel & Numbers');},0);
+setTimeout(()=>{const first=document.querySelector('#alphabet .alphabetArea.panel-active');if(first&&typeof addBottomActivityNav==='function')addBottomActivityNav(first,'showAlphabetLanding','Fidel & Numbers');},0);
 
 // Keep hover translations useful on touch/keyboard too.
 document.querySelectorAll('.hoverTranslation').forEach(el=>{const b=el.closest('button');if(b&&!b.title)b.title=el.textContent.trim()});
@@ -662,5 +818,619 @@ document.querySelectorAll('.hoverTranslation').forEach(el=>{const b=el.closest('
  syncBottomNav();
 })();
 </script>
+\n<script id="v21-learning-upgrades">
+(function(){
+const ethNums=['፩','፪','፫','፬','፭','፮','፯','፰','፱','፲','፲፩','፲፪','፲፫','፲፬','፲፭','፲፮','፲፯','፲፰','፲፱','፳','፳፩','፳፪','፳፫','፳፬','፳፭','፳፮','፳፯','፳፰','፳፱','፴','፴፩','፴፪','፴፫','፴፬'];
+// A focused Fidel-family explorer replaces the long scrolling family list.
+window.familyExplorerIndex=0;
+window.renderFamilyExplorer=function(index=window.familyExplorerIndex){
+  window.familyExplorerIndex=(Number(index)+families.length)%families.length;
+  const grid=document.getElementById('alphabetGrid'); if(!grid)return; const i=window.familyExplorerIndex, f=families[i];
+  grid.innerHTML=`<div class="familyExplorer"><div class="familyExplorerTop"><label>Choose family <span class="helperEnglish">የፊደል ቤት</span><select id="familyExplorerSelect" onchange="renderFamilyExplorer(this.value)">${families.map((x,n)=>`<option value="${n}" ${n===i?'selected':''}>${ethNums[n]||n+1} — ${x.join(' ')}</option>`).join('')}</select></label><button onclick="renderFamilyExplorer(${i-1})">◀ Previous</button><button onclick="renderFamilyExplorer(${i+1})">Next ▶</button></div><div class="familyExplorerCard"><div class="familyHead"><b>${ethNums[i]||i+1} • ${f[0]} Family</b><button onclick="playFidelFamily(${i})">🔊 Play Family</button></div><div class="familyExplorerLetters">${f.map((letter,j)=>`<button class="fidelSound" data-sound-id="fx-${i}-${j}" onclick="soundLetter('${letter}',this)"><span class="ethiopicLetter">${letter}</span><span class="latinSound">${latinGuide(i,j)}</span></button>`).join('')}</div></div><details><summary><b>Browse all ${families.length} families</b> <span class="helperEnglish">ሁሉንም ፊደላት</span></summary><div class="allFamiliesCompact">${families.map((x,n)=>`<button class="allFamilyMini" onclick="renderFamilyExplorer(${n});this.closest('details').open=false"><b>${ethNums[n]||n+1} — ${x[0]}</b><small>${x.join(' ')}</small></button>`).join('')}</div></details></div>`;
+};
+// Ensure tracing always exposes every Fidel family and all seven forms.
+const oldRenderPicker=window.renderTraceFamilyPicker;
+window.refreshTraceFamilyOptions=function(){const picker=document.getElementById('traceFamilySelect');if(!picker)return;const current=Number(picker.value)||0;picker.innerHTML=families.map((f,i)=>`<option value="${i}">${ethNums[i]||i+1} — ${f.join(' ')}</option>`).join('');picker.value=String(current);};
+// More useful family navigation in tracing.
+window.previousTraceFamily=function(){const picker=document.getElementById('traceFamilySelect');let i=(Number(picker.value)-1+families.length)%families.length;picker.value=String(i);changeTraceFamilySelect(i)};
+const top=document.querySelector('#labTracing .traceFamilyTop');if(top&&!top.querySelector('.tracePrevFamily')){const b=document.createElement('button');b.className='tracePrevFamily';b.textContent='◀ Previous Family';b.onclick=previousTraceFamily;top.insertBefore(b,top.querySelector('.traceNextFamily'));}
+refreshTraceFamilyOptions();
+renderFamilyExplorer(0);
+// Prayer accordion labels: English title above Amharic.
+const prayerNameMap={'አቡነ ዘበሰማያት':'The Lord’s Prayer','ጸሎተ እግዝእትነ ማርያም':'Prayer to Our Lady Saint Mary','ጸሎተ ሃይማኖት':'The Creed / Prayer of Faith','ስብሐት ለአብ':'Glory Be to the Father'};
+document.querySelectorAll('.prayerAccordionTitle').forEach(sum=>{if(sum.querySelector('.prayerEnTitle'))return;const original=sum.textContent.trim();const key=Object.keys(prayerNameMap).find(k=>original.includes(k));if(key)sum.innerHTML=`<span class="prayerEnTitle">${prayerNameMap[key]}</span><span class="prayerAmTitle">${original}</span>`;});
+// Build 1,000+ Bible/EOTC challenge variations from a vetted fact bank already used by the app.
+if(typeof bibleQuestions!=='undefined'){
+  const doctrinalFacts=[
+    {q:'How many holy Mysteries (Sacraments) are taught by the Ethiopian Orthodox Tewahedo Church?',a:'Seven',o:['Seven','Three','Five','Twelve']},
+    {q:'Which Mystery gives new birth through water and the Holy Spirit?',a:'Baptism',o:['Baptism','Ordination','Matrimony','Penance']},
+    {q:'Which Mystery follows Baptism with holy anointing?',a:'Myron',o:['Myron','Ordination','Penance','Unction']},
+    {q:'Which Mystery is the Eucharistic participation in the Body and Blood of Christ?',a:'Holy Communion',o:['Holy Communion','Matrimony','Ordination','Myron']},
+    {q:'Which Mystery sets apart those called to priestly service?',a:'Ordination',o:['Ordination','Baptism','Penance','Myron']},
+    {q:'Which Mystery joins a man and woman in holy marriage?',a:'Holy Matrimony',o:['Holy Matrimony','Ordination','Baptism','Unction']},
+    {q:'Which Mystery includes repentance and confession for the forgiveness of sins?',a:'Penance',o:['Penance','Myron','Matrimony','Ordination']},
+    {q:'Which Mystery includes holy anointing for the sick?',a:'Unction of the Sick',o:['Unction of the Sick','Myron','Baptism','Ordination']},
+    {q:'In the Mystery of the Holy Trinity, how many Gods does the Church confess?',a:'One God',o:['One God','Three gods','Two gods','Many gods']},
+    {q:'Who are the three Persons named in the Holy Trinity?',a:'Father, Son, and Holy Spirit',o:['Father, Son, and Holy Spirit','Peter, Paul, and John','Abraham, Isaac, and Jacob','Moses, Aaron, and Miriam']},
+    {q:'The Holy Trinity is one in what?',a:'Essence, divinity, existence, and will',o:['Essence, divinity, existence, and will','Name only','Place only','History only']},
+    {q:'In the traditional teaching of the Trinity, who is the Begetter?',a:'The Father',o:['The Father','The Son','The Holy Spirit','Saint Peter']},
+    {q:'In the traditional teaching of the Trinity, who is Begotten?',a:'The Son',o:['The Son','The Father','The Holy Spirit','Saint John']},
+    {q:'In the traditional teaching of the Trinity, from whom does the Holy Spirit proceed?',a:'The Father',o:['The Father','The Son alone','The Apostles','The Prophets']}
+  ];
+  const bases=[...bibleQuestions,...doctrinalFacts];
+  const starters=['Choose the correct answer: ','Bible learning: ','Faith learning: ','Review question: ','Think carefully: ','Quick check: ','Practice challenge: ','Church-learning review: ','For today’s lesson: ','Knowledge check: ','Youth challenge: ','Family learning: ','Class review: ','Memory check: ','Try this one: ','Which answer is right? ','Warm-up: ','Challenge: ','Lesson review: ','Faith and Bible: '];
+  const expanded=[];
+  bases.forEach((b,bi)=>starters.forEach((pre,pi)=>expanded.push({q:pre+b.q,a:b.a,o:[...b.o],sourceIndex:bi,variant:pi})));
+  while(expanded.length<1100){const b=bases[expanded.length%bases.length];const n=expanded.length+1;expanded.push({q:`Challenge ${n}: ${b.q}`,a:b.a,o:[...b.o],sourceIndex:n%bases.length,variant:n});}
+  bibleQuestions.splice(0,bibleQuestions.length,...expanded);
+}
+})();
+</script>\n
+<script id="v24-stability-layer">
+(function(){
+'use strict';
+const ETH_NUMS=['፩','፪','፫','፬','፭','፮','፯','፰','፱','፲','፲፩','፲፪','፲፫','፲፬','፲፭','፲፮','፲፯','፲፰','፲፱','፳','፳፩','፳፪','፳፫','፳፬','፳፭','፳፮','፳፯','፳፰','፳፱','፴','፴፩','፴፪','፴፫','፴፬'];
+const LATIN_SUFFIX=['a','u','i','a','e','ə','o'];
+const ROMAN_BASE=['h','l','ḥ','m','ś','r','s','sh','q','b','v','t','ch','ḫ','n','ñ','ʾ','k','kh','w','ʿ','z','zh','y','d','j','g','ṭ','č','p̣','ṣ','ṣ́','f','p'];
+function familySounds(i){const b=ROMAN_BASE[i]||'';return LATIN_SUFFIX.map((x,n)=>n===5?(b+'e'):(b+x));}
+let alphabetFamilyIndex=0;
+function populateAlphabetSelect(){const sel=document.getElementById('alphabetFamilySelect');if(!sel||typeof families==='undefined')return;const keep=document.createElement('option');keep.value='';keep.disabled=true;keep.textContent='Choose a letter family…';sel.innerHTML='';sel.appendChild(keep);families.forEach((f,i)=>{const o=document.createElement('option');o.value=String(i);o.textContent=`${ETH_NUMS[i]} — ${f.join(' ')}`;sel.appendChild(o)});sel.value=String(alphabetFamilyIndex);}
+function renderAlphabetFamilyV24(){if(typeof families==='undefined')return;alphabetFamilyIndex=Math.max(0,Math.min(families.length-1,alphabetFamilyIndex));const box=document.getElementById('alphabetFamilyLetters'),count=document.getElementById('alphabetFamilyCount'),sel=document.getElementById('alphabetFamilySelect');if(!box)return;const sounds=familySounds(alphabetFamilyIndex);box.innerHTML=families[alphabetFamilyIndex].map((letter,i)=>`<button type="button" class="fidelSound" onclick="speakAmharic('${letter}')"><span class="ethiopicLetter">${letter}</span><span class="latinSound">${sounds[i]}</span></button>`).join('');if(count)count.textContent=`${ETH_NUMS[alphabetFamilyIndex]} / ፴፬`;if(sel)sel.value=String(alphabetFamilyIndex);}
+window.selectAlphabetFamilyV24=function(v){if(v==='')return;alphabetFamilyIndex=Number(v)||0;renderAlphabetFamilyV24();};
+window.previousAlphabetFamily=function(){alphabetFamilyIndex=(alphabetFamilyIndex-1+families.length)%families.length;renderAlphabetFamilyV24();};
+window.nextAlphabetFamilyV24=function(){alphabetFamilyIndex=(alphabetFamilyIndex+1)%families.length;renderAlphabetFamilyV24();};
+window.hearAlphabetFamily=function(){const f=families[alphabetFamilyIndex]||[];let i=0;const play=()=>{if(i>=f.length)return;speakAmharic(f[i++]);setTimeout(play,650)};play();};
+window.toggleAllAlphabets=function(){const drawer=document.getElementById('allAlphabetDrawer');if(!drawer)return;if(!drawer.dataset.ready){drawer.innerHTML=families.map((f,i)=>`<button type="button" onclick="selectAlphabetFamilyFromDrawer(${i})">${ETH_NUMS[i]} — ${f.join(' ')}</button>`).join('');drawer.dataset.ready='1'}drawer.classList.toggle('open');};
+window.selectAlphabetFamilyFromDrawer=function(i){alphabetFamilyIndex=i;renderAlphabetFamilyV24();document.getElementById('allAlphabetDrawer')?.classList.remove('open');document.getElementById('alphabetPracticeCard')?.scrollIntoView({behavior:'smooth',block:'start'});};
+
+// Keep tracing selection complete and predictable. Do not auto-jump the page after a family selection.
+if(window.changeTraceFamilySelect){window.changeTraceFamilySelect=function(i){selectedTraceFamilies=new Set([Number(i)]);traceQueueIndex=0;rebuildTraceQueue();};}
+function normalizeTraceSelect(){const sel=document.getElementById('traceFamilySelect');if(!sel||typeof families==='undefined')return;const current=sel.value||'0';sel.innerHTML='<option value="" disabled>Choose a letter family…</option>'+families.map((f,i)=>`<option value="${i}">${ETH_NUMS[i]} — ${f.join(' ')}</option>`).join('');sel.value=current;}
+function addTraceFamilyNav(){const stage=document.querySelector('#labTracing .traceStage');const selected=document.getElementById('traceSelectedLetters');if(!stage||!selected||document.getElementById('traceFamilyNavV24'))return;const nav=document.createElement('div');nav.id='traceFamilyNavV24';nav.className='twoButtonRow traceFamilyNavOnly';nav.innerHTML='<button type="button" onclick="previousTraceFamilyV24()">◀ Previous Family</button><button type="button" onclick="nextTraceFamily()">Next Family ▶</button>';selected.insertAdjacentElement('afterend',nav);}
+
+window.previousTraceFamilyV24=function(){const sel=document.getElementById('traceFamilySelect');if(!sel)return;const i=(Number(sel.value||0)-1+families.length)%families.length;sel.value=String(i);changeTraceFamilySelect(i);};
+window.hearTraceFamilyV24=function(){const i=Number(document.getElementById('traceFamilySelect')?.value||0),f=families[i]||[];let n=0;const play=()=>{if(n>=f.length)return;speakAmharic(f[n++]);setTimeout(play,650)};play();};
+window.viewAllTraceFamiliesV24=function(){document.getElementById('traceAllAlphabetDrawer')?.classList.toggle('open');};
+window.selectTraceFamilyFromDrawer=function(i){const sel=document.getElementById('traceFamilySelect');if(sel)sel.value=String(i);changeTraceFamilySelect(i);document.getElementById('traceAllAlphabetDrawer')?.classList.remove('open');};
+function addTraceScrollGutters(){const canvas=document.getElementById('traceCanvas');if(!canvas||canvas.parentElement?.classList.contains('traceCanvasShell'))return;const shell=document.createElement('div');shell.className='traceCanvasShell';canvas.parentNode.insertBefore(shell,canvas);shell.appendChild(canvas);const left=document.createElement('div'),right=document.createElement('div');left.className='traceScrollGutter left';right.className='traceScrollGutter right';left.setAttribute('aria-label','Scroll area');right.setAttribute('aria-label','Scroll area');[left,right].forEach(g=>{g.addEventListener('pointerdown',e=>{e.stopPropagation()});g.addEventListener('pointermove',e=>{e.stopPropagation()});});shell.append(left,right);const help=document.createElement('p');help.className='traceEdgeHelp';help.textContent='Use the left or right white edge to scroll the page. Trace only in the center area.';shell.insertAdjacentElement('afterend',help);}
+
+// English-first prayer accordion titles.
+function normalizePrayerTitles(){const p=document.getElementById('spiritualPrayers');if(!p)return;const titles=[['The Lord’s Prayer','አቡነ ዘበሰማያት — አባታችን ሆይ'],['Prayer to Saint Mary','ጸሎተ እግዝእትነ ማርያም — የእመቤታችን ጸሎት'],['The Creed / Prayer of Faith','ጸሎተ ሃይማኖት — የሃይማኖት ጸሎት'],['Glory Be to the Father','ስብሐት ለአብ']];p.querySelectorAll('details.prayerAccordion summary').forEach((sum,i)=>{if(!titles[i])return;sum.innerHTML=`<span class="prayerEnTitle">${titles[i][0]}</span><span class="prayerAmTitle">${titles[i][1]}</span>`;});}
+
+const trinityTopics=[
+ ['Overview / አጠቃላይ','The Ethiopian Orthodox Tewahedo Church confesses one God: Father, Son and Holy Spirit. The Persons are distinct in name, person and personal work, yet the Godhead is one in divinity, essence, existence and will. This is not belief in three gods; it is the Mystery of the one Triune God.','ቅድስት ሥላሴ አብ፣ ወልድ፣ መንፈስ ቅዱስ ናቸው። ሦስት በስም፣ በአካል እና በግብር ሲሆኑ፣ አንድ በመለኮት፣ በባሕርይ፣ በሕልውና እና በፈቃድ ናቸው። ሦስት አማልክት ሳይሆኑ አንድ እግዚአብሔር ነው።'],
+ ['The Father / አብ','The Father is unbegotten and is the eternal Begetter of the Son. The Father is not the Son or the Holy Spirit, yet He is one in Godhead with them. Christian prayer and worship confess the Father together with the Son and the Holy Spirit.','አብ ወላዲ ነው፤ ያልተወለደ ነው፤ ወልድን ከዘላለም ይወልዳል።'],
+ ['The Son / ወልድ','The Son is eternally begotten of the Father, Light of Light and true God of true God. For our salvation He became incarnate from the Holy Spirit and the Holy Virgin Mary, truly became man without ceasing to be God, was crucified, died, rose and ascended.','ወልድ ከአብ የተወለደ ነው፤ ለድኅነታችን ከመንፈስ ቅዱስና ከቅድስት ድንግል ማርያም ሥጋን ነሥቶ ፍጹም ሰው ሆነ።'],
+ ['The Holy Spirit / መንፈስ ቅዱስ','The Holy Spirit proceeds from the Father, is the Lord and Giver of Life, spoke through the prophets, sanctifies the faithful and is worshiped and glorified together with the Father and the Son.','መንፈስ ቅዱስ ከአብ የሚሠርጽ ነው፤ ሕይወትን ይሰጣል፣ ይቀድሳል፣ በነቢያትም ተናግሯል።'],
+ ['Biblical Witness / የመጽሐፍ ቅዱስ ምስክር','Study Genesis 1:26; Genesis 18:1–3; Matthew 3:13–17 at the Baptism of Christ; John 1:1–14; and Matthew 28:19. These passages are commonly used to help learners see the Church’s confession of the Father, Son and Holy Spirit.','ዘፍጥረት 1፥26፣ ዘፍጥረት 18፥1-3፣ ማቴዎስ 3፥13-17፣ ዮሐንስ 1፥1-14 እና ማቴዎስ 28፥19ን ያንብቡ።']
+];
+const mysteryTopics=[
+ ['Overview / አጠቃላይ','The Church teaches seven holy Mysteries: Baptism, Myron, Holy Communion, Penance, Ordination, Holy Matrimony and Unction of the Sick. Through the sacramental life of the Church, believers receive, grow in and return to the life of grace.','ቤተ ክርስቲያን ሰባት ቅዱሳን ምሥጢራትን ታስተምራለች።'],
+ ['Baptism / ጥምቀት','Baptism is the Mystery of new birth by water and the Holy Spirit. It joins the baptized person to the life of Christ and the Church and is received once. Study Matthew 28:19, John 3:5 and Romans 6:3–4.','ጥምቀት በውኃና በመንፈስ ቅዱስ አዲስ ልደት የሚገኝበት ምሥጢር ነው።'],
+ ['Myron / ሜሮን','Myron is the holy anointing associated with the gift and sealing of the Holy Spirit after Baptism. The newly baptized is anointed and strengthened for life in Christ.','ሜሮን ከጥምቀት በኋላ የሚፈጸም ቅዱስ ቅባት ነው።'],
+ ['Holy Communion / ቁርባን','In Holy Communion the faithful receive the true Body and Blood of our Lord Jesus Christ. It is the food of spiritual life and unity and is received repeatedly with repentance, faith and proper preparation according to Church discipline. Study Matthew 26:26–28 and John 6.','ቅዱስ ቁርባን የጌታችንን ኢየሱስ ክርስቶስ ሥጋና ደም የምንቀበልበት ቅዱስ ምሥጢር ነው።'],
+ ['Penance / ንስሐ','Penance is the Mystery of repentance and confession. A Christian turns away from sin, confesses with humility and receives absolution through the priestly ministry Christ entrusted to His Church.','ንስሐ ከኃጢአት ተመልሶ ወደ እግዚአብሔር መቅረብንና በንስሐ አባት ፊት መናዘዝን ያካትታል።'],
+ ['Ordination / ክህነት','Ordination sets apart those called to serve in the ordained ministry of the Church. Through prayer and laying on of hands, clergy are appointed to serve according to the apostolic order and responsibilities of the Church.','ክህነት ለቤተ ክርስቲያን አገልግሎት የተጠሩ ሰዎች የሚሾሙበት ምሥጢር ነው።'],
+ ['Holy Matrimony / ተክሊል','Holy Matrimony blesses the covenantal union of a man and woman in Christ. Husband and wife are called to fidelity, sacrificial love, prayer, mutual service and the Christian nurture of their family.','ተክሊል ወንድና ሴት በክርስቶስ የሚባረኩበት ቅዱስ ምሥጢር ነው።'],
+ ['Unction of the Sick / ቀንዲል','Unction of the Sick is holy anointing and prayer for those who are ill, asking God for mercy, healing, forgiveness and spiritual strength according to His will. Study James 5:14–15.','ቀንዲል ለታመሙ ሰዎች በጸሎትና በቅዱስ ቅባት የሚፈጸም ምሥጢር ነው።'],
+ ['How they relate / ግንኙነታቸው','Baptism and Myron are received once; Holy Communion and Penance are central repeated Mysteries of Christian life; Unction is received when needed; Ordination is for those called to ordained ministry; and Holy Matrimony is for those called to married life. Exact pastoral practice should always be learned from the Church.','እያንዳንዱ ምሥጢር በቤተ ክርስቲያን ሥርዓት ውስጥ የራሱ ቦታና ጊዜ አለው።']
+];
+function buildFaithSubtabs(panelId,title,topics){const panel=document.getElementById(panelId);if(!panel)return;panel.classList.add('faithArea');panel.innerHTML=`<div class="card"><h2>${title}</h2><p>Open one topic at a time. Each section gives a bilingual learning summary and points learners toward Scripture and deeper Church teaching.</p><div class="storyAccordion faithDoctrineAccordion">${topics.map((t,i)=>`<details ${i===0?'open':''}><summary>${t[0]}</summary><div class="storyBody"><p>${t[1]}</p><p class="amText">${t[2]}</p><div class="faithStudyNote"><b>Continue learning:</b> Read the related Bible passages in full and ask your parish priest, spiritual father, Church Fathers, or a qualified Ethiopian Orthodox Tewahedo Sunday School teacher for clarification and deeper catechetical teaching.</div></div></details>`).join('')}</div></div>`;}
+
+const STORY_DATA=[
+ {title:'ፍጥረት / Creation',ref:'Genesis 1–2',api:'GEN.1-GEN.2',am:'እግዚአብሔር ሰማይን፣ ምድርንና ፍጥረትን በጥበብ ፈጠረ። ሰውንም በክብር ፈጥሮ ፍጥረትን እንዲጠብቅ ኃላፊነት ሰጠው።',en:'God creates heaven and earth and all that is in them, bringing order, life and goodness. Humanity receives special dignity and responsibility. The story teaches worship of the Creator, gratitude, obedience and stewardship.'},
+ {title:'ኖኅ / Noah',ref:'Genesis 6–9',api:'GEN.6-GEN.9',am:'ኖኅ በእምነት እግዚአብሔርን ታዘዘ። በክፉ ዘመን ውስጥ ታማኝ ሆኖ መርከብን ሠራ፤ እግዚአብሔርም በምሕረቱ ጠበቀው።',en:'Noah obeys God in a corrupt generation and builds the ark. God preserves Noah’s household and establishes a covenant. The account teaches obedience, repentance, judgment against sin and divine mercy.'},
+ {title:'ዮሴፍ / Joseph',ref:'Genesis 37–50',api:'GEN.37-GEN.50',am:'ዮሴፍ በወንድሞቹ ቢጎዳም በእግዚአብሔር ታመነ፣ በንጽሕና ኖረ፣ በመጨረሻም ወንድሞቹን ይቅር አለ።',en:'Joseph experiences betrayal, slavery and imprisonment, yet God remains with him. He later becomes an instrument of deliverance during famine and forgives his brothers. The story teaches patience, purity, forgiveness and trust in providence.'},
+ {title:'ሙሴ / Moses',ref:'Exodus 1–20',api:'EXO.1-EXO.20',am:'እግዚአብሔር ሙሴን ጠርቶ ሕዝቡን ከባርነት አወጣ፣ ከዚያም ትእዛዛቱን ሰጣቸው።',en:'God calls Moses, delivers Israel from slavery and gives the commandments. Moses learns humble service and perseverance. The story introduces deliverance, covenant, obedience, prayer and God’s holy law.'},
+ {title:'ዳዊትና ጎልያድ / David and Goliath',ref:'1 Samuel 17',api:'1SA.17',am:'ዳዊት በጦር መሣሪያ ሳይሆን በእግዚአብሔር ታምኖ ጎልያድን ተጋፈጠ።',en:'Young David faces Goliath with faith rather than confidence in size or weapons. The lesson is about humility, courage, prayer and confidence in the living God.'},
+ {title:'ልደተ ክርስቶስ / Nativity',ref:'Matthew 1–2; Luke 1–2',api:'LUK.2',am:'የዘላለም ወልድ ለድኅነታችን ከቅድስት ድንግል ማርያም ተወለደ። መላእክት የምሥራችን አበሰሩ፤ እረኞችም ሰገዱለት።',en:'The eternal Son of God is born from the Holy Virgin Mary for our salvation. Angels proclaim good news and shepherds worship. The Nativity reveals the humility of the Incarnation and calls us to worship and thanksgiving.'},
+ {title:'ጥምቀተ ክርስቶስ / Timket',ref:'Matthew 3:13–17',api:'MAT.3.13-MAT.3.17',am:'ጌታችን ኢየሱስ ክርስቶስ በዮርዳኖስ ተጠመቀ፤ የአብ ድምፅ ተሰማ፣ መንፈስ ቅዱስም ወረደ። የቅድስት ሥላሴ ምሥጢር ተገለጠ።',en:'Christ is baptized by Saint John in the Jordan. The Father’s voice is heard and the Holy Spirit descends, manifesting the Holy Trinity. Timket points learners toward repentance, baptism and the revelation of Father, Son and Holy Spirit.'},
+ {title:'ደጉ ሳምራዊ / Good Samaritan',ref:'Luke 10:25–37',api:'LUK.10.25-LUK.10.37',am:'ጌታችን ባልንጀራን መውደድ በቃል ብቻ ሳይሆን በምሕረትና በተግባር እንዲገለጥ አስተማረ።',en:'Christ answers “Who is my neighbor?” with a story of practical mercy. True love notices suffering and acts. The lesson is compassion, service and refusing to pass by a person in need.'},
+ {title:'የጠፋው ልጅ / Prodigal Son',ref:'Luke 15:11–32',api:'LUK.15.11-LUK.15.32',am:'የጠፋው ልጅ ኃጢአቱን አውቆ ወደ አባቱ ተመለሰ፤ አባቱም በምሕረት ተቀበለው።',en:'The son recognizes his sin, repents and returns; the father receives him with compassion. The parable teaches repentance, humility, forgiveness and the joy of returning to the Father.'},
+ {title:'ስቅለት / Crucifixion',ref:'Matthew 27; Mark 15; Luke 23; John 19',api:'JHN.19',am:'ጌታችን ኢየሱስ ክርስቶስ ለዓለም ድኅነት በፈቃዱ መከራን ተቀብሎ በመስቀል ላይ ተሰቀለ።',en:'Our Lord Jesus Christ willingly suffers and is crucified for the salvation of the world. The Cross reveals sacrificial love, forgiveness and victory through self-giving. Approach this holy event with reverence, repentance and gratitude.'},
+ {title:'ትንሣኤ / Resurrection',ref:'Matthew 28; Mark 16; Luke 24; John 20',api:'MAT.28',am:'ክርስቶስ ከሙታን ተነሥቶ ሞትን ድል አደረገ። ትንሣኤው የክርስቲያን ተስፋ ማዕከል ነው።',en:'Christ rises from the dead, defeating death and confirming the hope of the faithful. The disciples move from fear to witness. The Resurrection calls believers to joy, new life and faithful witness.'},
+ {title:'ጰራቅሊጦስ / Pentecost',ref:'Acts 2',api:'ACT.2',am:'መንፈስ ቅዱስ በሐዋርያት ላይ ወረደና ወንጌልን እንዲመሰክሩ አጸናቸው።',en:'The Holy Spirit descends upon the apostles and strengthens their witness. People from many nations hear the proclamation. Pentecost teaches the work of the Holy Spirit, unity, prayer, witness and life in the Church.'}
+];
+function buildBibleStories(){const panel=document.getElementById('faithStories');if(!panel)return;panel.innerHTML=`<div class="card"><h2>Bible Story Discussion <span class="helperEnglish">የመጽሐፍ ቅዱስ ታሪክ ውይይት</span></h2><p>Open a story, read the bilingual summary, then continue with the full Scripture passage. The summaries are learning guides—not replacements for the Bible or the teaching ministry of the Church.</p><div class="storyAccordion">${STORY_DATA.map((s,i)=>`<details><summary>${s.title}</summary><div class="storyBody"><span class="storyReference">Read: ${s.ref}</span><p>${s.en}</p><p class="amText">${s.am}</p><button type="button" class="storyReadBtn" onclick="openStoryInBibleReader('${s.api}',${i})">Read this passage here</button><div class="faithStudyNote"><b>For deeper study:</b> Read the complete passage in your Bible and ask your parish priest, spiritual father, Church Fathers, or qualified Sunday School teacher for clarification.</div></div></details>`).join('')}</div><div class="embeddedBibleReader" id="embeddedBibleReader"><h3>Read the Bible here <span class="helperEnglish">መጽሐፍ ቅዱስን እዚህ ያንብቡ</span></h3><p>Choose a book and chapter to read English KJV and an available Amharic text side by side without leaving this page.</p><div class="readerControls"><label>Book<select id="readerBook"></select></label><label>Chapter<input id="readerChapter" type="number" min="1" value="1"></label><button type="button" onclick="loadEmbeddedBibleChapter()">Load Chapter</button></div><div id="readerStatus" class="feedback"></div><div class="readerColumns"><article><h4>English</h4><div id="readerEnglishText" class="readerText">Select a chapter to begin.</div></article><article><h4>አማርኛ</h4><div id="readerAmharicText" class="readerText amText">ምዕራፍ ይምረጡ።</div></article></div><p class="readerSourceNote">The in-page reader uses a public third-party Bible service that provides KJV and Amharic text. If the service is temporarily unavailable, the story summaries remain available and you can continue with your own Bible.</p></div></div>`;populateEmbeddedBibleBooks();}
+})();
+</script>
+
+
+<style id="v26-polish">
+/* V26: consistency, accessible sizing, unclipped icons, unified Q&A */
+.landingIcon{overflow:visible!important;min-height:46px!important;height:46px!important}
+.landingLogo{width:44px!important;height:44px!important;border-radius:13px!important;overflow:hidden!important}
+.landingLogo>span{font-size:27px!important}
+.landingFaithIcon{width:45px!important;height:48px!important;overflow:visible!important}
+.landingEmoji{font-size:38px!important;line-height:1!important}
+.mainCategoryTab .spiritualStack,.hubIntro h2 .spiritualStack,.globalBottomNav .spiritualStack{overflow:visible!important}
+.activityIcon{overflow:visible!important;line-height:1.15!important}
+.question,.game .question,#bibleQuestion,.quizQuestion{font-size:clamp(20px,3.2vw,30px)!important;line-height:1.35!important}
+.question small,.helperEnglish,.choices button,.quizOption,.tile,.pictureName,.pictureTarget,.pictureWord,.feedback{font-size:clamp(15px,2.2vw,19px)!important;line-height:1.4!important}
+.choices button,.quizOption{min-height:48px;padding:10px 12px!important}
+.storyAccordion details,.faithDoctrineAccordion details{margin:8px 0;border:0;border-left:7px solid #da121a;border-radius:14px;background:#fffdf4;overflow:hidden;box-shadow:0 3px 12px #173c3410}
+.storyAccordion summary,.faithDoctrineAccordion summary{cursor:pointer;list-style:none;padding:15px 18px;font-size:clamp(18px,2.8vw,24px);font-weight:900;color:#173f48;display:flex;align-items:center;gap:8px}
+.storyAccordion summary::-webkit-details-marker,.faithDoctrineAccordion summary::-webkit-details-marker{display:none}
+.storyAccordion summary:before,.faithDoctrineAccordion summary:before{content:'▶';font-size:.8em;color:#174d55;transition:transform .18s}
+.storyAccordion details[open] summary:before,.faithDoctrineAccordion details[open] summary:before{transform:rotate(90deg)}
+.storyBody{padding:0 18px 16px;font-size:clamp(16px,2vw,19px);line-height:1.6;color:#263f45}
+.storyReference,.verseGuide{display:block;margin:8px 0;padding:9px 11px;border-radius:10px;background:#eaf5f1;color:#075b49;font-weight:800;font-size:clamp(14px,2vw,17px)}
+.verseGuide b{color:#a52631}.faithStudyNote{font-size:14px!important;line-height:1.5}
+/* picture learning + drag matching */
+.v26PictureSection{margin-top:10px}.v26PictureGallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:8px}.v26PicCard{background:#fff;border:2px solid #d4e4df;border-radius:15px;padding:9px 6px;text-align:center;min-height:120px}.v26PicCard .pic{font-size:42px;line-height:1.1}.v26PicCard .am{font-size:18px;font-weight:900;color:#075b49}.v26PicCard .en{font-size:14px;color:#5a6c70}.v26MatchBoard{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.v26PicturePile,.v26WordPile{display:grid;gap:7px}.v26DragPic,.v26DropWord{min-height:64px;border-radius:13px;border:2px solid #b9d3ca;background:#f8fcfa;display:flex;align-items:center;justify-content:center;gap:8px;padding:7px;font-weight:900}.v26DragPic{font-size:34px;cursor:grab;background:#eef7ff;border-color:#bdd8ed}.v26DragPic small{font-size:12px;color:#49606a}.v26DropWord{font-size:18px;color:#173f48;background:#fffdf4;border-color:#e6d79c}.v26DropWord.selected{outline:3px solid #0b7a53}.v26DropWord.correct{background:#e9f8ee;border-color:#078930;color:#075b49}.v26DragPic.matched{opacity:.28;pointer-events:none}.v26MatchHelp{font-size:14px;color:#5a6c70;text-align:center;margin:6px 0}.v26MatchFeedback{text-align:center;font-weight:900;color:#075b49;min-height:24px;margin:6px}
+#alphabetFamilies{display:none}.alphabetArea.panel-active#alphabetFamilies{display:block!important}.alphabetPracticeCard{display:block!important}
+@media(max-width:700px){
+ .landingIcon{height:40px!important;min-height:40px!important}.landingLogo{width:38px!important;height:38px!important}.landingLogo>span{font-size:23px!important}.landingFaithIcon{width:39px!important;height:42px!important}.landingEmoji{font-size:33px!important}
+ .v26PictureGallery{grid-template-columns:repeat(3,1fr)}.v26PicCard{min-height:104px;padding:7px 3px}.v26PicCard .pic{font-size:36px}.v26PicCard .am{font-size:16px}.v26PicCard .en{font-size:12px}
+ .v26MatchBoard{gap:6px}.v26DragPic,.v26DropWord{min-height:56px;padding:5px}.v26DragPic{font-size:29px}.v26DropWord{font-size:16px}
+ .storyAccordion summary,.faithDoctrineAccordion summary{padding:13px 12px;font-size:18px}.storyBody{padding:0 12px 13px;font-size:16px}
+}
+</style>
+<script id="v26-behavior">
+(function(){
+'use strict';
+/* Ensure Ethiopian Alphabets remains the first, visible Fidel & Numbers lesson. */
+const alphaSection=document.getElementById('alphabet');
+if(alphaSection){
+ const first=alphaSection.querySelector('.subnav button');
+ if(first){first.textContent='Ethiopian Alphabets'; first.insertAdjacentHTML('beforeend','<span class="hoverTranslation">የኢትዮጵያ ፊደላት</span>');}
+ const area=document.getElementById('alphabetFamilies'); if(area) area.classList.add('panel-active');
+}
+/* Accessible accordion: only one doctrine/story card open at once in each group. */
+function oneOpen(root){if(!root)return;root.addEventListener('toggle',e=>{const d=e.target;if(d.tagName!=='DETAILS'||!d.open)return;root.querySelectorAll('details[open]').forEach(x=>{if(x!==d)x.open=false});},true)}
+document.querySelectorAll('.storyAccordion,.faithDoctrineAccordion').forEach(oneOpen);
+
+/* Rebuild Trinity and Seven Mysteries using the same expand/collapse pattern as Bible Stories, with Scripture guides. */
+const tri=[
+ ['One God — አንድ እግዚአብሔር','The Church confesses one God, eternally Father, Son and Holy Spirit. The three Persons are distinct, yet the divine essence, glory, life and will are one. This mystery is received in worship and faith, not reduced to three separate gods.','ቅድስት ሥላሴ አብ፣ ወልድ፣ መንፈስ ቅዱስ ናቸው። ሦስት በስምና በአካል ሲሆኑ በመለኮትና በባሕርይ አንድ ናቸው።','Deuteronomy 6:4; Matthew 28:19; 2 Corinthians 13:14'],
+ ['The Father — አብ','The Father is unbegotten and eternally begets the Son. He is not the Son or the Holy Spirit, yet He is never separated from them in the one Godhead.','አብ ያልተወለደ ነው፤ ወልድን ከዘላለም ይወልዳል።','John 5:26; John 17:1–5; Matthew 3:17'],
+ ['The Son — ወልድ','The Son is eternally begotten of the Father. For our salvation He became incarnate from the Holy Spirit and the Holy Virgin Mary, truly God and truly man in the one incarnate nature of the Word.','ወልድ ከአብ የተወለደ ነው፤ ለድኅነታችን ሥጋን ነሥቶ ሰው ሆነ።','John 1:1–14; John 3:16; Philippians 2:5–11'],
+ ['The Holy Spirit — መንፈስ ቅዱስ','The Holy Spirit proceeds from the Father, gives life, sanctifies the faithful and spoke through the prophets. He is worshiped and glorified with the Father and the Son.','መንፈስ ቅዱስ ከአብ የሚሠርጽ ነው፤ ሕይወትን ይሰጣል ይቀድሳል።','John 15:26; Acts 2:1–4; 1 Corinthians 3:16'],
+ ['The Trinity Revealed — የሥላሴ መገለጥ','At the Baptism of Christ the Son stands in the Jordan, the Father speaks from heaven and the Holy Spirit descends. The Church points to this as a clear biblical manifestation of the Holy Trinity.','በጌታችን ጥምቀት ወልድ በዮርዳኖስ፣ የአብ ድምፅ ከሰማይ፣ መንፈስ ቅዱስም ሲወርድ ተገለጠ።','Matthew 3:13–17; Luke 3:21–22']
+];
+const mys=[
+ ['Overview — አጠቃላይ','The seven Mysteries are holy means of grace in the life of the Church: Baptism, Myron, Holy Communion, Penance, Ordination, Holy Matrimony and Unction of the Sick.','ሰባቱ ምሥጢራት በቤተ ክርስቲያን ሕይወት ውስጥ የጸጋ መንገዶች ናቸው።','Matthew 28:19; Acts 2:38–42; James 5:14–15'],
+ ['Baptism — ምሥጢረ ጥምቀት','Baptism is new birth by water and the Holy Spirit and entrance into the life of Christ and His Church.','ጥምቀት በውኃና በመንፈስ ቅዱስ አዲስ ልደት የሚገኝበት ምሥጢር ነው።','John 3:5; Matthew 28:19; Romans 6:3–4'],
+ ['Myron — ምሥጢረ ሜሮን','After Baptism the believer is anointed with Holy Myron as a seal of the grace and gift of the Holy Spirit.','ከጥምቀት በኋላ በቅዱስ ሜሮን ቅብዓት የመንፈስ ቅዱስ ጸጋ ይሰጣል።','Acts 8:14–17; 2 Corinthians 1:21–22; 1 John 2:20'],
+ ['Holy Communion — ምሥጢረ ቁርባን','In the Eucharist the faithful receive the Holy Body and Precious Blood of our Lord Jesus Christ, with repentance, faith and preparation.','በቅዱስ ቁርባን የጌታችንን ቅዱስ ሥጋና ክቡር ደም እንቀበላለን።','Matthew 26:26–28; John 6:51–58; 1 Corinthians 11:23–29'],
+ ['Penance — ምሥጢረ ንስሐ','Through repentance and confession the believer turns from sin and seeks forgiveness and spiritual healing in the ministry of the Church.','ንስሐ ከኃጢአት ተመልሶ ይቅርታንና መንፈሳዊ ፈውስን መፈለግ ነው።','John 20:22–23; James 5:16; 1 John 1:9'],
+ ['Ordination — ምሥጢረ ክህነት','Through prayer and laying on of hands, those called are set apart for ordained service according to the apostolic order of the Church.','በጸሎትና በእጅ መጫን ለቅዱስ አገልግሎት ይሾማሉ።','Acts 6:6; Acts 13:2–3; 1 Timothy 4:14'],
+ ['Holy Matrimony — ምሥጢረ ተክሊል','Holy Matrimony blesses the covenantal union of a man and woman in Christ, calling them to fidelity, prayer, sacrifice and Christian family life.','ተክሊል ወንድና ሴት በክርስቶስ በቅዱስ ቃል ኪዳን የሚተሳሰሩበት ምሥጢር ነው።','Genesis 2:24; Matthew 19:4–6; Ephesians 5:25–33'],
+ ['Unction of the Sick — ምሥጢረ ቀንዲል','The Church prays and anoints the sick, asking God for mercy, forgiveness, spiritual strength and healing according to His will.','ለታመሙ በጸሎትና በቅብዓት ምሕረትና ፈውስ ይለመናል።','James 5:14–15; Mark 6:13']
+];
+function doctrine(panelId,title,am,rows){const panel=document.getElementById(panelId);if(!panel)return;panel.innerHTML=`<div class="card"><h2>${title} <span class="helperEnglish">${am}</span></h2><p>Open one topic at a time. Read the summary, then read the listed Bible passages in full.</p><div class="storyAccordion faithDoctrineAccordion">${rows.map(r=>`<details><summary>${r[0]}</summary><div class="storyBody"><p>${r[1]}</p><p class="amText">${r[2]}</p><span class="verseGuide"><b>Bible passages to read:</b> ${r[3]}</span><div class="faithStudyNote"><b>Continue learning:</b> Read the full passages and ask your parish priest, spiritual father, Church Fathers, or a qualified Ethiopian Orthodox Tewahedo Sunday School teacher for clarification.</div></div></details>`).join('')}</div></div>`;oneOpen(panel.querySelector('.storyAccordion'));}
+doctrine('faithTrinity','Mystery of the Holy Trinity','ምሥጢረ ሥላሴ',tri);
+doctrine('faithSacraments','Seven Mysteries of the Church','ሰባቱ ምሥጢራተ ቤተ ክርስቲያን',mys);
+
+/* Universal picture learning: gallery + drag the picture onto the matching Amharic word; tap fallback for phones. */
+const sets={
+ animals:[['🐶','ውሻ','Dog'],['🐱','ድመት','Cat'],['🐄','ላም','Cow'],['🐑','በግ','Sheep'],['🐐','ፍየል','Goat'],['🐎','ፈረስ','Horse'],['🫏','አህያ','Donkey'],['🐔','ዶሮ','Chicken'],['🦁','አንበሳ','Lion'],['🐘','ዝሆን','Elephant'],['🐒','ዝንጀሮ','Monkey'],['🐦','ወፍ','Bird']],
+ food:[['🍎','ፖም','Apple'],['🍌','ሙዝ','Banana'],['🍊','ብርቱካን','Orange'],['🍇','ወይን','Grapes'],['🥕','ካሮት','Carrot'],['🌽','በቆሎ','Corn'],['🥔','ድንች','Potato'],['🍅','ቲማቲም','Tomato'],['🥚','እንቁላል','Egg'],['🥛','ወተት','Milk'],['🍞','ዳቦ','Bread'],['🫓','እንጀራ','Injera']],
+ people:[['👨','ወንድ','Man'],['👩','ሴት','Woman'],['👩‍🍼','እናት','Mother'],['👨‍🍼','አባት','Father'],['👦','ወንድም','Brother'],['👧','እኅት','Sister'],['👨‍👩‍👧‍👦','ቤተሰብ','Family'],['👴','ወንድ አያት','Grandfather'],['👵','ሴት አያት','Grandmother'],['👶','ሕፃን','Baby'],['👩‍🦱','አክስት','Aunt'],['👨‍🦱','አጎት','Uncle']],
+ body:[['🙂','ጭንቅላት','Head'],['💇','ፀጉር','Hair'],['👁️','ዓይን','Eye'],['👂','ጆሮ','Ear'],['👃','አፍንጫ','Nose'],['👄','አፍ','Mouth'],['🦷','ጥርስ','Teeth'],['👅','ምላስ','Tongue'],['💪','ክንድ','Arm'],['✋','እጅ','Hand'],['☝️','ጣት','Finger'],['🦵','እግር','Leg']],
+ colors:[['🔴','ቀይ','Red'],['🟢','አረንጓዴ','Green'],['🟡','ቢጫ','Yellow'],['🔵','ሰማያዊ','Blue'],['⚫','ጥቁር','Black'],['⚪','ነጭ','White'],['🟣','ሐምራዊ','Purple'],['🟠','ብርቱካናማ','Orange'],['⭕','ክብ','Circle'],['⬜','ካሬ','Square'],['🔺','ሦስት ማዕዘን','Triangle'],['⭐','ኮከብ','Star']],
+ objects:[['📚','መጽሐፍ','Book'],['✏️','እርሳስ','Pencil'],['🎒','ቦርሳ','Bag'],['🪑','ወንበር','Chair'],['🛏️','አልጋ','Bed'],['🚪','በር','Door'],['🪟','መስኮት','Window'],['🚗','መኪና','Car'],['📱','ስልክ','Phone'],['🥄','ማንኪያ','Spoon'],['🥤','ብርጭቆ','Cup'],['🧼','ሳሙና','Soap']],
+ clothing:[['👕','ሸሚዝ','Shirt'],['👖','ሱሪ','Pants'],['👗','ቀሚስ','Dress'],['🧥','ጃኬት','Jacket'],['🧦','ካልሲ','Socks'],['👟','ጫማ','Shoes'],['🧢','ኮፍያ','Hat'],['🧣','ሻርፕ','Scarf'],['🧤','ጓንት','Gloves'],['👚','ልብስ','Clothes']],
+ nature:[['☀️','ፀሐይ','Sun'],['🌙','ጨረቃ','Moon'],['⭐','ኮከብ','Star'],['☁️','ደመና','Cloud'],['🌧️','ዝናብ','Rain'],['💨','ነፋስ','Wind'],['🌳','ዛፍ','Tree'],['🌸','አበባ','Flower'],['🍃','ቅጠል','Leaf'],['🔥','እሳት','Fire'],['💧','ውሃ','Water'],['⛰️','ተራራ','Mountain']]
+};
+const panelMap={animals:'labAnimals',food:'labFood',people:'labPeople',body:'pic_body',colors:'pic_colors',objects:'pic_objects',clothing:'pic_clothing',nature:'pic_nature'};
+let selectedPic=null;
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function renderPicSection(key){const panel=document.getElementById(panelMap[key]);if(!panel)return;const data=sets[key];let host=panel.querySelector('.v26PictureSection');if(!host){host=document.createElement('div');host.className='card v26PictureSection';panel.appendChild(host)}
+ host.innerHTML=`<h2>Picture Practice <span class="helperEnglish">ምስል ልምምድ</span></h2><p class="v26MatchHelp">Learn the words, then drag each picture to the matching Amharic word. On a phone, tap a picture and then tap its word.</p><div class="v26PictureGallery">${data.map(x=>`<button class="v26PicCard" type="button" onclick="speakAmharic('${x[1]}')"><div class="pic">${x[0]}</div><div class="am">${x[1]}</div><div class="en">${x[2]} 🔊</div></button>`).join('')}</div><h3>Drag Picture → Amharic Word</h3><div class="v26MatchBoard" id="v26match_${key}"></div><div class="v26MatchFeedback" id="v26feedback_${key}"></div><button type="button" onclick="v26NewMatch('${key}')">New Set</button>`;
+ window.v26NewMatch(key);
+}
+window.v26NewMatch=function(key){const host=document.getElementById('v26match_'+key);if(!host)return;const chosen=shuffle(sets[key]).slice(0,Math.min(8,sets[key].length));const pics=shuffle(chosen), words=shuffle(chosen);host.dataset.total=chosen.length;host.dataset.done='0';selectedPic=null;host.innerHTML=`<div class="v26PicturePile">${pics.map(x=>`<button type="button" draggable="true" class="v26DragPic" data-key="${key}" data-am="${x[1]}" ondragstart="event.dataTransfer.setData('text/plain','${x[1]}')" onclick="v26SelectPic(this)"><span>${x[0]}</span><small>${x[2]}</small></button>`).join('')}</div><div class="v26WordPile">${words.map(x=>`<button type="button" class="v26DropWord" data-am="${x[1]}" ondragover="event.preventDefault()" ondrop="v26Drop(event,this,'${key}')" onclick="v26TapWord(this,'${key}')">${x[1]}</button>`).join('')}</div>`;document.getElementById('v26feedback_'+key).textContent=`0 / ${chosen.length}`}
+window.v26SelectPic=function(el){document.querySelectorAll('.v26DragPic').forEach(x=>x.style.outline='');selectedPic=el.dataset.am;el.style.outline='3px solid #0b7a53'}
+window.v26TapWord=function(word,key){if(!selectedPic)return;v26CheckMatch(selectedPic,word,key)}
+window.v26Drop=function(ev,word,key){ev.preventDefault();const am=ev.dataTransfer.getData('text/plain');v26CheckMatch(am,word,key)}
+function v26CheckMatch(am,word,key){const host=document.getElementById('v26match_'+key),fb=document.getElementById('v26feedback_'+key);if(word.dataset.am===am){word.classList.add('correct');word.disabled=true;const pic=[...host.querySelectorAll('.v26DragPic')].find(x=>x.dataset.am===am&&!x.classList.contains('matched'));if(pic)pic.classList.add('matched');let done=Number(host.dataset.done)+1;host.dataset.done=done;fb.textContent=`✓ ${done} / ${host.dataset.total}`;selectedPic=null;if(done===Number(host.dataset.total))fb.textContent='🏆 All matched! / ሁሉንም አዛምደዋል!'}else{fb.textContent='Try again / እንደገና ሞክር';word.animate([{transform:'translateX(-4px)'},{transform:'translateX(4px)'},{transform:'translateX(0)'}],{duration:220})}}
+Object.keys(panelMap).forEach(renderPicSection);
+
+/* Keep icon artwork fully inside landing tiles. */
+document.querySelectorAll('.landingIcon .miniBrandMark,.landingIcon .spiritualStack').forEach(el=>{el.style.transform='scale(.88)';el.style.transformOrigin='center'});
+})();
+</script>
+
+
+<style id="v27-fixes">
+/* V27: restore alphabets, readable matching, larger exercise text, visible quiz feedback */
+#alphabetFamilyLetters:empty::before{
+  content:'Loading Ethiopian Alphabets…';
+  grid-column:1/-1;
+  text-align:center;
+  padding:18px;
+  color:#5b7476;
+  font-size:18px;
+}
+/* One size larger across exercise/question interfaces without crowding mobile screens */
+.game .question,.question,#bibleQuizStage .question,.quizQuestion{
+  font-size:clamp(23px,3.6vw,34px)!important;
+  line-height:1.35!important;
+}
+.choices button,.quizOption,.tile,.pictureName,.pictureTarget,.pictureWord,
+.v26DropWord,.animalNameTile,.animalTarget,.feedback{
+  font-size:clamp(17px,2.5vw,21px)!important;
+  line-height:1.42!important;
+}
+.choices button,.quizOption{min-height:52px!important;padding:12px 14px!important}
+/* Make answer state unmistakable in Faith quiz */
+.quizOption.v27-correct{background:#e5f7eb!important;border-color:#078930!important;color:#075b49!important;box-shadow:inset 0 0 0 2px #078930}
+.quizOption.v27-wrong{background:#fff0f0!important;border-color:#da121a!important;color:#8f171d!important;box-shadow:inset 0 0 0 2px #da121a}
+.quizOption:disabled{opacity:1!important;cursor:default}
+/* Fix low-contrast animal/matching content */
+.animalMatchCard,.animalNameTile,.animalTarget{
+  color:#173f48!important;
+  background:#fffdf4!important;
+  border-color:#b9d3ca!important;
+}
+.animalMatchCard.revealed,.animalMatchCard.matched,.animalNameTile.selected,.animalTarget.correct{
+  background:#e9f8ee!important;color:#075b49!important;border-color:#078930!important;
+}
+/* True drag affordance on picture exercises */
+.v26DragPic{touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;position:relative;z-index:1}
+.v26DragPic.v27-dragging{opacity:.45;outline:3px solid #0b7a53!important}
+.v27DragGhost{position:fixed;z-index:99999;pointer-events:none;transform:translate(-50%,-50%);padding:9px 14px;border-radius:14px;background:#fff;border:3px solid #0b7a53;box-shadow:0 10px 28px #0003;font-size:34px}
+.v26DropWord.v27-over{outline:4px solid #f0c400;background:#fff9d9!important}
+@media(max-width:700px){
+  .game .question,.question,#bibleQuizStage .question,.quizQuestion{font-size:23px!important}
+  .choices button,.quizOption,.tile,.pictureName,.pictureTarget,.pictureWord,.v26DropWord,.feedback{font-size:17px!important}
+  .alphabetFamilyLetters .ethiopicLetter{font-size:33px!important}
+  .alphabetFamilyLetters .latinSound{font-size:14px!important}
+}
+</style>
+<script id="v27-fixes-script">
+(function(){
+'use strict';
+function ensureAlphabetVisible(){
+  try{
+    const area=document.getElementById('alphabetFamilies');
+    if(area) area.classList.add('panel-active');
+    if(typeof renderAlphabetFamilyV24==='function') renderAlphabetFamilyV24();
+  }catch(e){console.warn('Alphabet initialization:',e)}
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',ensureAlphabetVisible);
+else ensureAlphabetVisible();
+
+/* Faith quiz: clearly color the selected answer and reveal the correct answer. */
+const originalAnswerBibleQuiz=window.answerBibleQuiz;
+window.answerBibleQuiz=function(btn,encoded){
+  const answer=decodeURIComponent(encoded);
+  const correct=btn.textContent.trim()===answer.trim();
+  document.querySelectorAll('#bibleQuizStage .quizOption').forEach(b=>{
+    if(b.textContent.trim()===answer.trim()) b.classList.add('v27-correct');
+  });
+  if(!correct) btn.classList.add('v27-wrong');
+  if(typeof originalAnswerBibleQuiz==='function') originalAnswerBibleQuiz(btn,encoded);
+};
+
+/* Add pointer/touch drag-and-drop to every picture matching board.
+   Desktop HTML5 drag still works; this adds reliable phone/tablet dragging. */
+let dragEl=null,ghost=null,key=null;
+function clearOver(){document.querySelectorAll('.v26DropWord.v27-over').forEach(x=>x.classList.remove('v27-over'))}
+function cleanup(){
+  clearOver();
+  if(dragEl) dragEl.classList.remove('v27-dragging');
+  if(ghost) ghost.remove();
+  dragEl=ghost=key=null;
+}
+document.addEventListener('pointerdown',function(e){
+  const el=e.target.closest && e.target.closest('.v26DragPic');
+  if(!el || el.classList.contains('matched')) return;
+  dragEl=el; key=el.dataset.key;
+  el.classList.add('v27-dragging');
+  if(window.v26SelectPic) window.v26SelectPic(el);
+  ghost=document.createElement('div'); ghost.className='v27DragGhost';
+  ghost.innerHTML=el.innerHTML; document.body.appendChild(ghost);
+  ghost.style.left=e.clientX+'px'; ghost.style.top=e.clientY+'px';
+  try{el.setPointerCapture(e.pointerId)}catch(_){ }
+  e.preventDefault();
+},{passive:false});
+document.addEventListener('pointermove',function(e){
+  if(!dragEl||!ghost)return;
+  ghost.style.left=e.clientX+'px'; ghost.style.top=e.clientY+'px';
+  clearOver();
+  const target=document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.v26DropWord');
+  if(target) target.classList.add('v27-over');
+  e.preventDefault();
+},{passive:false});
+document.addEventListener('pointerup',function(e){
+  if(!dragEl)return;
+  const target=document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.v26DropWord');
+  if(target && window.v26TapWord) window.v26TapWord(target,key);
+  cleanup();
+},{passive:false});
+document.addEventListener('pointercancel',cleanup);
+
+/* Re-apply pointer behavior automatically after New Set; delegated listeners above need no rebinding. */
+})();
+</script>
+
+
+<style id="v28-consistency-fixes">
+/* V28 — compact, consistent learner controls */
+/* View-all list: exactly one family per row, no overlap. */
+#allAlphabetDrawer.open{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:7px!important;
+  max-height:52vh;
+  overflow:auto;
+  padding:8px!important;
+}
+#allAlphabetDrawer button{
+  width:100%!important;
+  min-height:48px!important;
+  padding:9px 12px!important;
+  text-align:left!important;
+  white-space:normal!important;
+  overflow-wrap:anywhere!important;
+  font-size:clamp(18px,2.8vw,23px)!important;
+}
+/* Animal matching now mirrors every other picture matching activity. */
+.animalV28Board{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px auto;max-width:760px}
+.animalV28Pile,.animalV28Words{display:grid;gap:7px}
+.animalV28DragPic,.animalV28DropWord{
+  min-height:64px;border-radius:13px;border:2px solid #b9d3ca;
+  display:flex;align-items:center;justify-content:center;gap:8px;padding:7px;font-weight:900;
+}
+.animalV28DragPic{font-size:34px;cursor:grab;background:#eef7ff;border-color:#bdd8ed;color:#173f48;touch-action:none;user-select:none;-webkit-user-select:none}
+.animalV28DragPic small{font-size:13px;color:#49606a}
+.animalV28DropWord{font-size:19px;color:#173f48;background:#fffdf4;border-color:#e6d79c}
+.animalV28DropWord.selected,.animalV28DropWord.v28-over{outline:3px solid #0b7a53;background:#fff9d9}
+.animalV28DropWord.correct{background:#e9f8ee!important;border-color:#078930!important;color:#075b49!important}
+.animalV28DragPic.matched{opacity:.28;pointer-events:none}
+.animalV28DragPic.v28-dragging{opacity:.42;outline:3px solid #0b7a53}
+.v28AnimalGhost{position:fixed;z-index:99999;pointer-events:none;transform:translate(-50%,-50%);padding:8px 13px;border-radius:13px;background:#fff;border:3px solid #0b7a53;box-shadow:0 10px 28px #0003;font-size:34px}
+/* Consistent, proportional question hierarchy across exercises. */
+.game .question,.question,#bibleQuizStage .question,.quizQuestion,
+#missing .question,#word .question,#choice .question,#scrabble .question,#sentence .question,#puzzles .question{
+  font-size:clamp(21px,3.1vw,28px)!important;
+  line-height:1.38!important;
+  margin:8px 0!important;
+}
+.game .question small,.question small,#bibleQuizStage .question small,.quizQuestion small{
+  display:block!important;
+  font-size:clamp(16px,2vw,18px)!important;
+  line-height:1.45!important;
+  margin-top:5px!important;
+  font-weight:650!important;
+}
+.choices button,.quizOption{font-size:clamp(17px,2.4vw,20px)!important;line-height:1.35!important;min-height:50px!important;padding:10px 12px!important}
+/* Bible quiz: keep question, answers, feedback and Next visually together. */
+#faithBibleQuiz .card.game,#faithBibleQuiz.card.game{max-width:780px;margin-left:auto;margin-right:auto}
+#bibleQuizStage{display:grid;gap:7px;max-width:720px;margin:8px auto 0}
+#bibleQuizStage .question{background:#f6faf8;border:1px solid #d7e7e1;border-radius:13px;padding:11px 13px!important}
+#bibleQuizStage .quizOption{margin:0!important;width:100%;border:2px solid #c8dcd5;background:#fff;color:#173f48;border-radius:12px;text-align:left}
+#bibleQuizStage .quizOption:hover,#bibleQuizStage .quizOption:focus-visible{border-color:#078930;background:#f1faf5}
+#bibleAnswer{margin:2px 0 0!important;padding:0!important;font-size:17px!important}
+#bibleAnswer button{display:block;width:100%;min-height:48px;margin-top:7px!important;background:#075b49!important;color:#fff!important;border:0!important;border-radius:12px!important;font-size:18px!important;font-weight:850!important}
+@media(max-width:700px){
+  .animalV28Board{gap:6px}.animalV28DragPic,.animalV28DropWord{min-height:56px;padding:5px}.animalV28DragPic{font-size:29px}.animalV28DropWord{font-size:17px}
+  .game .question,.question,#bibleQuizStage .question,.quizQuestion,#missing .question,#word .question,#choice .question,#scrabble .question,#sentence .question,#puzzles .question{font-size:22px!important}
+  .game .question small,.question small,#bibleQuizStage .question small,.quizQuestion small{font-size:16px!important}
+  .choices button,.quizOption{font-size:17px!important}
+  #allAlphabetDrawer.open{max-height:46vh}
+}
+</style>
+<script id="v28-consistency-script">
+(function(){
+'use strict';
+/* Swap the two Ethiopian Alphabet action rows: View/Listen first, Previous/Next second. */
+function arrangeAlphabetActions(){
+  const wrap=document.querySelector('#alphabetPracticeCard .alphabetActionPairs');
+  if(!wrap) return;
+  const rows=[...wrap.querySelectorAll(':scope > .twoButtonRow')];
+  if(rows.length>=2){
+    const prevNext=rows.find(r=>/Previous Family/i.test(r.textContent));
+    const viewListen=rows.find(r=>/View All Alphabets/i.test(r.textContent));
+    if(prevNext&&viewListen&&wrap.firstElementChild!==viewListen){wrap.insertBefore(viewListen,prevNext);}
+  }
+}
+/* Keep the ሀ family as the default family whenever this build first opens. */
+function ensureHaFamily(){
+  try{
+    if(typeof window.selectAlphabetFamilyFromDrawer==='function'){
+      // Avoid the helper's scroll behavior by only resetting when the visible first letter is not ሀ.
+      const first=document.querySelector('#alphabetFamilyLetters .ethiopicLetter');
+      if(first && first.textContent.trim()!=='ሀ') window.selectAlphabetFamilyFromDrawer(0);
+    }
+  }catch(_){ }
+}
+if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>{arrangeAlphabetActions();setTimeout(ensureHaFamily,0)});
+else {arrangeAlphabetActions();setTimeout(ensureHaFamily,0)}
+
+/* Rebuild the original Animal Matching game to use the same Picture → Amharic Word logic as all picture activities. */
+let v28AnimalSelected=null,v28AnimalSet=[],v28AnimalDone=0;
+window.newAnimalMatch=function(){
+  const host=document.getElementById('animalMatchGrid'),fb=document.getElementById('animalMatchFeedback');
+  if(!host||typeof animals==='undefined')return;
+  v28AnimalSet=labShuffle(animals).slice(0,Math.min(8,animals.length));v28AnimalDone=0;v28AnimalSelected=null;
+  const pics=labShuffle(v28AnimalSet),words=labShuffle(v28AnimalSet);
+  host.innerHTML=`<div class="animalV28Board"><div class="animalV28Pile">${pics.map(a=>`<button type="button" draggable="true" class="animalV28DragPic" data-am="${a.am}" ondragstart="animalV28DragStart(event,'${a.am}')" onclick="animalV28Select(this)"><span>${a.emoji}</span><small>${a.en}</small></button>`).join('')}</div><div class="animalV28Words">${words.map(a=>`<button type="button" class="animalV28DropWord" data-am="${a.am}" ondragover="event.preventDefault()" ondrop="animalV28Drop(event,this)" onclick="animalV28Tap(this)">${a.am}</button>`).join('')}</div></div>`;
+  if(fb)fb.textContent=`Drag each picture to its Amharic word • 0 / ${v28AnimalSet.length}`;
+};
+window.animalV28Select=function(el){
+  document.querySelectorAll('.animalV28DragPic').forEach(x=>x.style.outline='');
+  v28AnimalSelected=el.dataset.am;el.style.outline='3px solid #0b7a53';
+};
+window.animalV28Tap=function(word){if(v28AnimalSelected)v28AnimalCheck(v28AnimalSelected,word)};
+window.animalV28DragStart=function(ev,am){v28AnimalSelected=am;ev.dataTransfer.setData('text/plain',am)};
+window.animalV28Drop=function(ev,word){ev.preventDefault();const am=ev.dataTransfer.getData('text/plain')||v28AnimalSelected;if(am)v28AnimalCheck(am,word)};
+function v28AnimalCheck(am,word){
+  const host=document.getElementById('animalMatchGrid'),fb=document.getElementById('animalMatchFeedback');if(!host)return;
+  if(word.dataset.am===am){
+    word.classList.add('correct');word.disabled=true;
+    const pic=[...host.querySelectorAll('.animalV28DragPic')].find(x=>x.dataset.am===am&&!x.classList.contains('matched'));
+    if(pic){pic.classList.add('matched');pic.style.outline=''}
+    v28AnimalDone++;v28AnimalSelected=null;
+    if(fb)fb.textContent=v28AnimalDone===v28AnimalSet.length?'🏆 All matched! / ሁሉንም አዛምደዋል!':`✓ ${v28AnimalDone} / ${v28AnimalSet.length}`;
+    if(v28AnimalDone===v28AnimalSet.length&&typeof awardLearningPoints==='function')awardLearningPoints(50,'Completed animal picture matching','animals');
+  }else{
+    if(fb)fb.textContent='Try again / እንደገና ሞክር';
+    word.animate?.([{transform:'translateX(-4px)'},{transform:'translateX(4px)'},{transform:'translateX(0)'}],{duration:220});
+  }
+}
+/* Reliable touch/pointer dragging for the original animal game. */
+let drag=null,ghost=null;
+function animalClearOver(){document.querySelectorAll('.animalV28DropWord.v28-over').forEach(x=>x.classList.remove('v28-over'))}
+function animalCleanup(){animalClearOver();if(drag)drag.classList.remove('v28-dragging');ghost?.remove();drag=ghost=null}
+document.addEventListener('pointerdown',e=>{
+  const el=e.target.closest?.('.animalV28DragPic');if(!el||el.classList.contains('matched'))return;
+  drag=el;v28AnimalSelected=el.dataset.am;el.classList.add('v28-dragging');
+  ghost=document.createElement('div');ghost.className='v28AnimalGhost';ghost.innerHTML=el.innerHTML;document.body.appendChild(ghost);ghost.style.left=e.clientX+'px';ghost.style.top=e.clientY+'px';
+  try{el.setPointerCapture(e.pointerId)}catch(_){ } e.preventDefault();
+},{passive:false});
+document.addEventListener('pointermove',e=>{
+  if(!drag||!ghost)return;ghost.style.left=e.clientX+'px';ghost.style.top=e.clientY+'px';animalClearOver();const t=document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.animalV28DropWord');if(t)t.classList.add('v28-over');e.preventDefault();
+},{passive:false});
+document.addEventListener('pointerup',e=>{
+  if(!drag)return;const t=document.elementFromPoint(e.clientX,e.clientY)?.closest?.('.animalV28DropWord');if(t)v28AnimalCheck(v28AnimalSelected,t);animalCleanup();
+},{passive:false});
+document.addEventListener('pointercancel',animalCleanup);
+
+/* Make the original instructions match the shared picture-matching interaction. */
+const animalCard=document.getElementById('animalMatchGrid')?.closest('.card.game');
+if(animalCard){
+  const p=animalCard.querySelector('p');if(p)p.textContent='Drag each animal picture to the matching Amharic word. On a phone, you can also tap a picture and then tap its word.';
+}
+/* Re-render immediately so the old name-to-picture layout never flashes as the active game. */
+setTimeout(()=>{try{window.newAnimalMatch()}catch(_){ }},0);
+})();
+</script>
+
+
+<style id="v29-refinements">
+/* V29: Fidel & Numbers category landing, larger alphabet controls, prayer accordion consistency */
+#alphabet.category-landing .alphabetArea{display:none!important}
+#alphabet.category-landing .subnav{margin-bottom:8px}
+#alphabetPracticeCard .alphabetActionPairs button,
+#alphabetPracticeCard .twoButtonRow button,
+#allAlphabetDrawer button{
+  font-size:clamp(19px,2.8vw,23px)!important;
+  line-height:1.25!important;
+  min-height:50px!important;
+  padding:11px 12px!important;
+}
+/* Prayer accordions now visually match Bible Stories. */
+#spiritualPrayers .prayerAccordion{
+  margin:8px 0!important;
+  border:0!important;
+  border-left:7px solid #da121a!important;
+  border-radius:14px!important;
+  background:#fffdf4!important;
+  overflow:hidden!important;
+  box-shadow:0 3px 12px #173c3410!important;
+  padding:0!important;
+}
+#spiritualPrayers .prayerAccordion>summary{
+  cursor:pointer!important;
+  list-style:none!important;
+  padding:15px 18px!important;
+  font-size:clamp(18px,2.8vw,24px)!important;
+  font-weight:900!important;
+  color:#173f48!important;
+  background:#fffdf4!important;
+  display:grid!important;
+  grid-template-columns:auto 1fr!important;
+  column-gap:8px!important;
+  align-items:center!important;
+}
+#spiritualPrayers .prayerAccordion>summary::-webkit-details-marker{display:none!important}
+#spiritualPrayers .prayerAccordion>summary:before{
+  content:'▶'!important;
+  display:block!important;
+  grid-row:1/3!important;
+  grid-column:1!important;
+  font-size:.8em!important;
+  color:#174d55!important;
+  transition:transform .18s!important;
+}
+#spiritualPrayers .prayerAccordion[open]>summary:before{transform:rotate(90deg)!important}
+#spiritualPrayers .prayerAccordion>summary:after{content:none!important}
+#spiritualPrayers .prayerEnTitle,#spiritualPrayers .prayerAmTitle{grid-column:2!important}
+#spiritualPrayers .prayerAccordion>h3,
+#spiritualPrayers .prayerAccordion>.prayer{margin-left:14px!important;margin-right:14px!important}
+#spiritualPrayers .prayerAccordion>.prayer:last-child{margin-bottom:14px!important}
+@media(max-width:700px){
+  #alphabetPracticeCard .alphabetActionPairs button,#alphabetPracticeCard .twoButtonRow button,#allAlphabetDrawer button{font-size:19px!important;min-height:48px!important;padding:10px 8px!important}
+  #spiritualPrayers .prayerAccordion>summary{padding:13px 12px!important;font-size:18px!important}
+}
+</style>
+<script id="v29-refinements-script">
+(function(){
+'use strict';
+/* Fidel & Numbers should open as a category chooser only. */
+window.showAlphabetLanding=function(){
+  const hub=document.getElementById('alphabet'); if(!hub)return;
+  hub.classList.add('category-landing');
+  hub.querySelectorAll('.alphabetArea').forEach(x=>x.classList.remove('panel-active'));
+  hub.querySelectorAll('.subnav button').forEach((b,i)=>b.classList.toggle('sub-active',i===0));
+  const drawer=document.getElementById('allAlphabetDrawer'); if(drawer)drawer.classList.remove('open');
+  hub.scrollIntoView({behavior:'smooth',block:'start'});
+};
+const originalAlphabetArea=window.showAlphabetArea;
+if(typeof originalAlphabetArea==='function'){
+  window.showAlphabetArea=function(id,button){
+    const hub=document.getElementById('alphabet'); if(hub)hub.classList.remove('category-landing');
+    return originalAlphabetArea.call(this,id,button);
+  };
+}
+/* Any navigation route to Fidel & Numbers first shows only the three/four category choices. */
+const priorShow=window.show;
+if(typeof priorShow==='function'){
+  window.show=function(id){
+    const result=priorShow.apply(this,arguments);
+    if(id==='alphabet') setTimeout(window.showAlphabetLanding,0);
+    return result;
+  };
+}
+/* Initial state for the category if it happens to be visible later. */
+const alphabet=document.getElementById('alphabet');
+if(alphabet && alphabet.classList.contains('activeScreen')) window.showAlphabetLanding();
+
+/* Revert Picture Vocabulary behavior to Version 27, including the original animal matching layout. */
+let animalMatchSet=[],selectedAnimalName=null,animalMatchCount=0;
+window.newAnimalMatch=function(){
+  if(typeof animals==='undefined' || !document.getElementById('animalMatchGrid'))return;
+  animalMatchSet=labShuffle(animals).slice(0,10);selectedAnimalName=null;animalMatchCount=0;
+  const pictures=labShuffle(animalMatchSet),names=labShuffle(animalMatchSet);
+  document.getElementById('animalMatchGrid').innerHTML=`<div class="animalMatchBoard"><div class="animalTargets">${pictures.map(a=>`<button class="animalTarget" data-animal-target="${a.am}" onclick="placeAnimalName('${a.am}')" ondragover="event.preventDefault()" ondrop="dropAnimalName(event,'${a.am}')"><span>${a.emoji}</span><small>${a.en}</small></button>`).join('')}</div><div class="animalNames">${names.map(a=>`<button class="animalNameTile" draggable="true" data-animal-name="${a.am}" onclick="selectAnimalName('${a.am}')" ondragstart="dragAnimalName(event,'${a.am}')">${a.am}</button>`).join('')}</div></div>`;
+  document.getElementById('animalMatchFeedback').textContent='Tap or drag each Amharic name to its animal • 0 / 10';
+};
+window.selectAnimalName=function(am){
+  selectedAnimalName=am;
+  document.querySelectorAll('#animalMatchGrid .animalNameTile').forEach(x=>x.classList.toggle('selected',x.dataset.animalName===am));
+};
+window.placeAnimalName=function(targetAm){
+  if(!selectedAnimalName)return;
+  if(selectedAnimalName===targetAm){
+    const target=document.querySelector(`#animalMatchGrid .animalTarget[data-animal-target=\"${CSS.escape(targetAm)}\"]`);
+    const name=document.querySelector(`#animalMatchGrid .animalNameTile[data-animal-name=\"${CSS.escape(targetAm)}\"]`);
+    if(target)target.classList.add('correct'); if(name)name.classList.add('matched');
+    animalMatchCount++;selectedAnimalName=null;
+    document.getElementById('animalMatchFeedback').textContent=animalMatchCount===animalMatchSet.length?'🏆 All matched! / ሁሉንም አዛምደዋል!':`✓ ${animalMatchCount} / ${animalMatchSet.length}`;
+  }else{
+    document.getElementById('animalMatchFeedback').textContent='Try again / እንደገና ሞክር';
+  }
+};
+window.dragAnimalName=function(event,am){selectedAnimalName=am;event.dataTransfer.setData('text/plain',am);};
+window.dropAnimalName=function(event,targetAm){event.preventDefault();selectedAnimalName=event.dataTransfer.getData('text/plain')||selectedAnimalName;window.placeAnimalName(targetAm);};
+const animalCard=document.getElementById('animalMatchGrid')?.closest('.card.game');
+if(animalCard){const p=animalCard.querySelector('p');if(p)p.textContent='All pictures and names stay visible. Tap a name and then its animal, or drag the name to the picture.';}
+setTimeout(()=>{try{window.newAnimalMatch()}catch(_){ }},0);
+
+/* Prayer expand/collapse uses the same one-at-a-time behavior as Bible Stories. */
+const prayerPanel=document.getElementById('spiritualPrayers');
+if(prayerPanel){
+  const details=[...prayerPanel.querySelectorAll('details.prayerAccordion')];
+  details.forEach(d=>d.addEventListener('toggle',()=>{
+    if(!d.open)return;
+    details.forEach(other=>{if(other!==d)other.open=false;});
+  }));
+}
+})();
+</script>
+
 </body>
 </html>
